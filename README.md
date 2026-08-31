@@ -48,6 +48,18 @@
 
 ---
 
+## 💪 Stay Alert & Healthy (Exercise Guide)
+
+**Body-weight routines to keep PSWs strong, mobile, and alert on shift.**
+
+[**Open the Exercise Guide →**](https://8lueprint3.github.io/canadian-psw-placement-manual/wellness-exercises.html)
+
+- **Pre-shift warm-up** · **mid-shift alertness resets** · **post-shift recovery** · **off-day strength routine** (all body-weight, no equipment)
+- **Back care** — the injury-prevention body mechanics (bend knees not waist, keep the load close, brace the core)
+- Track it free with **openGym** (open-source, no account, 1,324 exercises)
+
+---
+
 ## 🧭 Quick reference
 
 - **Always acknowledge first, stay in scope, document facts, escalate.**
