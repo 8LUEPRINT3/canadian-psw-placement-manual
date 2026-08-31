@@ -35,6 +35,19 @@
 
 ---
 
+## 📝 Occurrence & Event Log (like Paper Trail)
+
+**A private, browser-local note tool for documenting events and occurrences on shift.**
+
+[**Open the Occurrence Log →**](https://8lueprint3.github.io/canadian-psw-placement-manual/)
+
+- **DARP-aligned** — Data / Action / Response / Plan fields, plus occurrence type, severity, location, and mandatory-reporting targets
+- **100% private** — everything stays in *your* browser (localStorage); nothing is uploaded anywhere
+- **Receipts & backup** — copy a timestamped receipt, or export a single entry (.md) or a full backup (.json / .md)
+- Works offline, mobile-friendly — use it on your phone during placement
+
+---
+
 ## 🧭 Quick reference
 
 - **Always acknowledge first, stay in scope, document facts, escalate.**
@@ -49,3 +62,4 @@
 - [`PSW_Placement_Manual_Complete.md`](PSW_Placement_Manual_Complete.md) — the full manual (Parts A–H + sources)
 - [`SIMULATOR.md`](SIMULATOR.md) — the practice engine (30-point rubric)
 - [`canadian-psw-placement-coach.md`](canadian-psw-placement-coach.md) — the underlying coaching skill (full framework)
+- [`index.html`](index.html) — the Occurrence & Event Log (browser-local note tool; live via GitHub Pages)
