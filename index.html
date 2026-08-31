@@ -8,44 +8,54 @@
   :root{
     --bg:#f4f7f9; --card:#ffffff; --ink:#1f2d3d; --muted:#64748b;
     --brand:#0f766e; --brand-dark:#115e59; --accent:#0ea5e9;
-    --danger:#dc2626; --warn:#d97706; --border:#e2e8f0;
-    --ok:#16a34a;
+    --danger:#dc2626; --warn:#d97706; --border:#e2e8f0; --ok:#16a34a;
   }
   *{box-sizing:border-box}
   body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
        background:var(--bg);color:var(--ink);line-height:1.5}
   .wrap{max-width:960px;margin:0 auto;padding:16px}
-  header{background:var(--brand);color:#fff;padding:18px 0;border-radius:0 0 14px 14px}
+  header{background:var(--brand);color:#fff;padding:16px 0;border-radius:0 0 14px 14px}
   header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-  header h1{font-size:1.25rem;margin:0}
-  header .sub{font-size:.85rem;opacity:.9;margin:2px 0 0}
-  .badge{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
-         padding:4px 10px;border-radius:999px;font-size:.75rem;font-weight:600}
-  .privacy{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;
-           padding:10px 14px;border-radius:10px;font-size:.85rem;margin:16px 0}
-  .privacy b{color:#065f46}
-  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;
-        padding:18px;margin:16px 0;box-shadow:0 1px 2px rgba(15,23,42,.05)}
-  h2{font-size:1.05rem;margin:0 0 4px}
-  .hint{color:var(--muted);font-size:.82rem;margin:0 0 14px}
-  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-  .full{grid-column:1/-1}
-  label{display:block;font-size:.8rem;font-weight:600;color:#334155;margin:10px 0 4px}
-  input,select,textarea{width:100%;padding:9px 11px;border:1px solid var(--border);
-        border-radius:8px;font-size:.9rem;font-family:inherit;background:#fff;color:var(--ink)}
-  textarea{min-height:70px;resize:vertical}
-  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
-  .darp{display:grid;gap:10px}
-  .darp .dlabel{font-size:.75rem;font-weight:700;letter-spacing:.02em;margin-bottom:2px}
-  .d-D{color:#0f766e}.d-A{color:#0369a1}.d-R{color:#7c3aed}.d-P{color:#b45309}
-  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
-  button{font-weight:600;border:none;border-radius:8px;cursor:pointer;font-size:.88rem;padding:10px 16px}
+  header h1{font-size:1.2rem;margin:0}
+  header .sub{font-size:.82rem;opacity:.9;margin:2px 0 0}
+  .who{display:flex;align-items:center;gap:10px}
+  .pill{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+        padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:600}
+  button{font-weight:600;border:none;border-radius:8px;cursor:pointer;font-size:.88rem;padding:10px 16px;font-family:inherit}
   .primary{background:var(--brand);color:#fff}
   .primary:hover{background:var(--brand-dark)}
   .ghost{background:#eef2f6;color:#334155}
   .ghost:hover{background:#e2e8f0}
   .danger{background:#fee2e2;color:var(--danger)}
   .danger:hover{background:#fecaca}
+  .light{background:rgba(255,255,255,.2);color:#fff;border:1px solid rgba(255,255,255,.4)}
+  .light:hover{background:rgba(255,255,255,.32)}
+
+  /* Unlock screen */
+  #unlock{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .lock-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:30px;max-width:420px;width:100%;
+             box-shadow:0 10px 30px rgba(15,23,42,.08)}
+  .lock-card h2{margin:0 0 6px;font-size:1.25rem}
+  .lock-card .sub{color:var(--muted);font-size:.86rem;margin:0 0 20px}
+  label{display:block;font-size:.8rem;font-weight:600;color:#334155;margin:12px 0 4px}
+  input,select,textarea{width:100%;padding:10px 12px;border:1px solid var(--border);
+        border-radius:8px;font-size:.9rem;font-family:inherit;background:#fff;color:var(--ink)}
+  textarea{min-height:70px;resize:vertical}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--accent);border-color:transparent}
+  .note{font-size:.8rem;color:var(--muted);margin-top:14px;line-height:1.5}
+  .err{background:#fee2e2;color:#b91c1c;padding:9px 12px;border-radius:8px;font-size:.84rem;margin-top:12px;display:none}
+
+  .privacy{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46;padding:10px 14px;border-radius:10px;font-size:.85rem;margin:16px 0}
+  .privacy b{color:#065f46}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:18px;margin:16px 0;box-shadow:0 1px 2px rgba(15,23,42,.05)}
+  h2{font-size:1.05rem;margin:0 0 4px}
+  .hint{color:var(--muted);font-size:.82rem;margin:0 0 14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .full{grid-column:1/-1}
+  .darp{display:grid;gap:10px}
+  .dlabel{font-size:.75rem;font-weight:700;letter-spacing:.02em;margin-bottom:2px}
+  .d-D{color:#0f766e}.d-A{color:#0369a1}.d-R{color:#7c3aed}.d-P{color:#b45309}
+  .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
   .toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 12px}
   .toolbar input{flex:1;min-width:180px}
   .entry{border:1px solid var(--border);border-radius:10px;padding:14px;margin:12px 0;background:#fff}
@@ -67,24 +77,59 @@
   .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:#0f172a;color:#fff;
          padding:10px 18px;border-radius:8px;font-size:.85rem;opacity:0;transition:opacity .25s;pointer-events:none;z-index:50}
   .toast.show{opacity:1}
+  #app{display:none}
   @media(max-width:600px){.grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
+<!-- ============ UNLOCK / CREATE SCREEN ============ -->
+<div id="unlock">
+  <div class="lock-card">
+    <h2>🔒 Open your private log</h2>
+    <p class="sub">Multi-user · encrypted · stays on this device. Each person uses their own passcode to get their own private, separate log.</p>
+
+    <label for="u-name">Your name (optional, shown to you only)</label>
+    <input type="text" id="u-name" placeholder="e.g. A. Sauce" autocomplete="username">
+
+    <label for="u-pass">Passcode</label>
+    <input type="password" id="u-pass" placeholder="Create one, or enter yours" autocomplete="current-password">
+
+    <div class="err" id="u-err"></div>
+
+    <div class="row" style="margin-top:18px">
+      <button class="primary" style="flex:1" onclick="unlock()">🔓 Open my log</button>
+    </div>
+
+    <p class="note">
+      <b>First time?</b> Just pick a name + a passcode and hit <b>Open my log</b> — it creates your private vault.
+      <br><br>
+      <b>Returning?</b> Enter the <b>same passcode</b> to unlock your existing notes.
+      <br><br>
+      ⚠️ Your passcode is the <b>only key</b>. If you forget it, your notes cannot be recovered (there is no reset — nothing is stored on a server). Different passcode = different user = different log.
+    </p>
+  </div>
+</div>
+
+<!-- ============ MAIN APP ============ -->
+<div id="app">
 <header>
   <div class="wrap">
     <div>
       <h1>📋 PSW Placement — Occurrence &amp; Event Log</h1>
       <div class="sub">Private, DARP-aligned notes on events and occurrences you witness on shift.</div>
     </div>
-    <span class="badge">🔒 100% local</span>
+    <div class="who">
+      <span class="pill" id="who-pill">🔒 <span id="who-name"></span></span>
+      <button class="light" onclick="lock()">Lock</button>
+    </div>
   </div>
 </header>
 
 <div class="wrap">
   <div class="privacy">
-    <b>Private by design.</b> Everything you write is saved only in <b>this browser</b> (localStorage).
-    Nothing is uploaded to any server. Export your own backups — no one else can see your notes.
+    <b>Private by design.</b> Your notes are <b>encrypted</b> and stored only in <b>this browser</b>.
+    Nothing is uploaded to any server. Different passcodes = separate users with separate logs.
     ⚠️ Still use good PHIPA habits: avoid full names/identifiers where possible; this is a personal memory aid, not the official chart.
   </div>
 
@@ -190,37 +235,118 @@
   </div>
 
   <footer>
-    Built for clinical placement study · Data never leaves your browser ·
+    Built for clinical placement study · Encrypted, multi-user, stays in your browser ·
     <a href="https://github.com/8LUEPRINT3/canadian-psw-placement-manual">manual on GitHub</a>
   </footer>
+</div>
 </div>
 
 <div class="toast" id="toast"></div>
 
 <script>
-const KEY = 'pswOccurrenceLog.v1';
+const STORE_KEY = 'pswOccVaults.v1';
+const te = new TextEncoder();
+const td = new TextDecoder();
 
-function load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || []; }catch(e){ return []; } }
-function persist(list){ localStorage.setItem(KEY, JSON.stringify(list)); }
-function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1800); }
+/* ---------- base64 helpers ---------- */
+function b64(buf){ return btoa(String.fromCharCode(...new Uint8Array(buf))); }
+function fromB64(s){ return Uint8Array.from(atob(s), c=>c.charCodeAt(0)); }
 
-let entries = load();
-let cats = new Set(entries.map(e=>e.cat));
-function buildFilter(){
-  const sel = document.getElementById('f-filter');
-  const cur = sel.value;
-  sel.innerHTML = '<option value="">All types</option>';
-  ['Client care refusal','Suspected abuse / neglect','Vitals deviation','Respiratory distress',
-   'Pain report','Fall / injury / incident','Family / visitor concern','Scope-of-practice issue',
-   'Privacy / confidentiality','Other'].forEach(c=>{
-    const o=document.createElement('option'); o.value=c; o.textContent=c; sel.appendChild(o);
-  });
-  sel.value = cur;
+/* ---------- crypto ---------- */
+async function deriveKey(pass, saltBuf){
+  const km = await crypto.subtle.importKey('raw', te.encode(pass), 'PBKDF2', false, ['deriveKey']);
+  return crypto.subtle.deriveKey(
+    {name:'PBKDF2', salt:saltBuf, iterations:150000, hash:'SHA-256'},
+    km, {name:'AES-GCM', length:256}, false, ['encrypt','decrypt']);
+}
+async function encryptEntries(key, entries){
+  const iv = crypto.getRandomValues(new Uint8Array(12));
+  const ct = await crypto.subtle.encrypt({name:'AES-GCM', iv}, key, te.encode(JSON.stringify(entries)));
+  return {iv: b64(iv), ct: b64(ct)};
+}
+async function decryptEntries(key, ivB64, ctB64){
+  const pt = await crypto.subtle.decrypt({name:'AES-GCM', iv: fromB64(ivB64)}, key, fromB64(ctB64));
+  return JSON.parse(td.decode(pt));
 }
 
+/* ---------- vault store ---------- */
+function loadVaults(){ try{ return JSON.parse(localStorage.getItem(STORE_KEY)) || []; }catch(e){ return []; } }
+function saveVaults(v){ localStorage.setItem(STORE_KEY, JSON.stringify(v)); }
+
+/* ---------- state ---------- */
+let vaultIndex = null;
+let key = null;
+let userName = '';
+let entries = [];
+
+async function persist(){
+  const vaults = loadVaults();
+  const {iv, ct} = await encryptEntries(key, entries);
+  vaults[vaultIndex].iv = iv;
+  vaults[vaultIndex].ct = ct;
+  vaults[vaultIndex].name = userName || vaults[vaultIndex].name || '';
+  saveVaults(vaults);
+}
+
+/* ---------- unlock ---------- */
+async function unlock(){
+  const errEl = document.getElementById('u-err');
+  errEl.style.display = 'none';
+  const pass = document.getElementById('u-pass').value;
+  const name = document.getElementById('u-name').value.trim();
+  if(!pass || pass.length < 4){ errEl.textContent = 'Passcode must be at least 4 characters.'; errEl.style.display='block'; return; }
+  if(!window.crypto || !crypto.subtle){ errEl.textContent = 'This browser does not support encryption (needs HTTPS). Open the https:// URL.'; errEl.style.display='block'; return; }
+
+  const vaults = loadVaults();
+
+  // try to unlock an existing vault with this passcode
+  for(let i=0;i<vaults.length;i++){
+    try{
+      const salt = fromB64(vaults[i].salt);
+      const k = await deriveKey(pass, salt);
+      const dec = await decryptEntries(k, vaults[i].iv, vaults[i].ct);
+      vaultIndex = i; key = k; userName = name || vaults[i].name || '';
+      entries = Array.isArray(dec) ? dec : [];
+      enterApp();
+      return;
+    }catch(e){ /* wrong passcode or corrupt -> try next */ }
+  }
+
+  // no match -> create a NEW vault for this passcode
+  const salt = crypto.getRandomValues(new Uint8Array(16));
+  const k = await deriveKey(pass, salt);
+  const {iv, ct} = await encryptEntries(k, []);
+  vaults.push({name, salt: b64(salt), iv, ct});
+  saveVaults(vaults);
+  vaultIndex = vaults.length - 1;
+  key = k; userName = name; entries = [];
+  enterApp();
+}
+
+function enterApp(){
+  document.getElementById('unlock').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+  document.getElementById('who-name').textContent = userName || 'unnamed';
+  clearForm();
+  render();
+  toast('Welcome' + (userName ? ', ' + userName : '') + '. Your log is private & encrypted.');
+}
+
+function lock(){
+  vaultIndex = null; key = null; userName = ''; entries = [];
+  document.getElementById('u-pass').value = '';
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('unlock').style.display = 'flex';
+  document.getElementById('u-err').style.display = 'none';
+}
+
+/* ---------- toast ---------- */
+function toast(msg){ const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),2000); }
+
+/* ---------- entry ops ---------- */
 function uid(){ return 'EVT-' + Date.now().toString(36).toUpperCase() + '-' + Math.random().toString(36).slice(2,6).toUpperCase(); }
 
-function saveEntry(){
+async function saveEntry(){
   const d=document.getElementById('f-date').value;
   const t=document.getElementById('f-time').value;
   const loc=document.getElementById('f-loc').value.trim();
@@ -235,26 +361,21 @@ function saveEntry(){
 
   if(!data && !action){ toast('Add at least Data or Action before saving.'); return; }
 
-  const e = {
-    id: uid(),
-    created: new Date().toISOString(),
-    date: d || new Date().toISOString().slice(0,10),
-    time: t || '',
+  entries.unshift({
+    id: uid(), created: new Date().toISOString(),
+    date: d || new Date().toISOString().slice(0,10), time: t || '',
     loc, cat, sev, data, quotes, action, resp, plan, report
-  };
-  entries.unshift(e);
-  persist(entries);
-  clearForm();
-  render();
-  toast('Saved. Receipt ID: ' + e.id);
+  });
+  await persist();
+  clearForm(); render();
+  toast('Saved. Receipt ID: ' + entries[0].id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
 
 function clearForm(){
   ['f-date','f-time','f-loc','f-data','f-quotes','f-action','f-resp','f-plan'].forEach(id=>document.getElementById(id).value='');
   document.getElementById('f-report').value='';
-  const now=new Date();
-  document.getElementById('f-date').value = now.toISOString().slice(0,10);
+  document.getElementById('f-date').value = new Date().toISOString().slice(0,10);
 }
 
 function esc(s){ return (s||'').replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
@@ -264,23 +385,18 @@ function render(){
   const f = document.getElementById('f-filter').value;
   const list = document.getElementById('list');
   const hint = document.getElementById('count-hint');
-
   const filtered = entries.filter(e=>{
     const hay = [e.data,e.action,e.resp,e.plan,e.loc,e.quotes,e.cat].join(' ').toLowerCase();
     return (!q || hay.includes(q)) && (!f || e.cat===f);
   });
-
   hint.textContent = entries.length ? entries.length + ' total · ' + filtered.length + ' shown' : 'No entries yet.';
-
   if(!filtered.length){ list.innerHTML = '<div class="empty">Nothing matches. Log your first occurrence above.</div>'; return; }
-
-  list.innerHTML = filtered.map((e,i)=>{
+  list.innerHTML = filtered.map(e=>{
     const idx = entries.indexOf(e);
-    const sevClass = 'sev-'+e.sev;
     return '<div class="entry">'+
       '<div class="top"><div>'+
         '<span class="cat">'+esc(e.cat)+'</span> '+
-        '<span class="sev '+sevClass+'">'+esc(e.sev)+'</span>'+
+        '<span class="sev sev-'+esc(e.sev)+'">'+esc(e.sev)+'</span>'+
         '<div class="meta">'+esc(e.date)+(e.time?' · '+esc(e.time):'')+(e.loc?' · '+esc(e.loc):'')+' · <b>'+esc(e.id)+'</b></div>'+
       '</div></div>'+
       (e.data?'<div class="body"><span class="k">D:</span> '+esc(e.data)+'</div>':'')+
@@ -298,61 +414,35 @@ function render(){
 }
 
 function mdOf(e){
-  return [
-    '# ' + e.id,
-    '',
+  return ['# ' + e.id,'',
     '- **Date:** ' + e.date + (e.time ? ' ' + e.time : ''),
     '- **Location:** ' + (e.loc || '—'),
     '- **Type:** ' + e.cat,
     '- **Severity:** ' + e.sev,
-    '- **Logged:** ' + new Date(e.created).toLocaleString(),
-    '',
-    '## D — Data',
-    e.data || '—',
-    (e.quotes ? '\n**Quotes:** “' + e.quotes + '”' : ''),
-    '',
-    '## A — Action',
-    e.action || '—',
-    '',
-    '## R — Response',
-    e.resp || '—',
-    '',
-    '## P — Plan',
-    e.plan || '—',
-    '',
+    '- **Logged:** ' + new Date(e.created).toLocaleString(),'',
+    '## D — Data', e.data || '—',
+    (e.quotes ? '\n**Quotes:** “' + e.quotes + '”' : ''),'',
+    '## A — Action', e.action || '—','',
+    '## R — Response', e.resp || '—','',
+    '## P — Plan', e.plan || '—','',
     e.report ? '**Report filed:** ' + e.report : ''
   ].join('\n');
 }
-
-function copyMD(i){
-  navigator.clipboard.writeText(mdOf(entries[i])).then(()=>toast('Receipt copied to clipboard'));
-}
-function downloadMD(i){
-  const e=entries[i];
-  download(e.id+'.md', mdOf(e), 'text/markdown');
-}
-function del(i){
+function copyMD(i){ navigator.clipboard.writeText(mdOf(entries[i])).then(()=>toast('Receipt copied to clipboard')); }
+function downloadMD(i){ const e=entries[i]; download(e.id+'.md', mdOf(e), 'text/markdown'); }
+async function del(i){
   if(!confirm('Delete this occurrence? This cannot be undone.')) return;
-  entries.splice(i,1); persist(entries); render(); toast('Deleted');
+  entries.splice(i,1); await persist(); render(); toast('Deleted');
 }
-function exportAll(){
-  download('psw-occurrence-backup.json', JSON.stringify(entries,null,2), 'application/json');
-}
-function exportMarkdown(){
-  const all = entries.slice().reverse().map(mdOf).join('\n\n---\n\n');
-  download('psw-occurrences.md', all || 'No entries.', 'text/markdown');
-}
+function exportAll(){ download('psw-occurrence-backup.json', JSON.stringify(entries,null,2), 'application/json'); }
+function exportMarkdown(){ const all = entries.slice().reverse().map(mdOf).join('\n\n---\n\n'); download('psw-occurrences.md', all || 'No entries.', 'text/markdown'); }
 function download(name, text, type){
   const blob = new Blob([text], {type});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = name;
-  a.click();
-  URL.revokeObjectURL(a.href);
+  const a = document.createElement('a'); a.href = URL.createObjectURL(blob); a.download = name; a.click(); URL.revokeObjectURL(a.href);
 }
 
-clearForm();
-render();
+/* enter key on passcode */
+document.getElementById('u-pass').addEventListener('keydown', e=>{ if(e.key==='Enter') unlock(); });
 </script>
 </body>
 </html>
