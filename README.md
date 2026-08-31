@@ -63,3 +63,5 @@
 - [`SIMULATOR.md`](SIMULATOR.md) — the practice engine (30-point rubric)
 - [`canadian-psw-placement-coach.md`](canadian-psw-placement-coach.md) — the underlying coaching skill (full framework)
 - [`index.html`](index.html) — the Occurrence & Event Log (browser-local note tool; live via GitHub Pages)
+- [`evidence-guide.html`](evidence-guide.html) — how to document events so the record stands up (DARP, do/don't, reporting targets)
+- [`can-i-record.html`](can-i-record.html) — consent guide: what a PSW can/should record (and what to do instead)
