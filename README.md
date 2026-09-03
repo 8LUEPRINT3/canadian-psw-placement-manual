@@ -60,6 +60,21 @@
 
 ---
 
+## 🍲 Meal Plans & Nutrition (Indigenous Nutrition Navigator)
+
+**Culturally safe, no-shame meal guidance across all diet types — with weekly PSW-ready meal plans and mini budgets.**
+
+[**Open the Nutrition Navigator →**](indigenous-nutrition-navigator.md)
+
+- Two-Eyed Seeing & Ethical Space framework, trauma-informed practice, zero dietary shaming
+- Full-spectrum nutritional matrix (wild game, marine foods, traditional plants/seaweeds, commercial staples)
+- Canada Food Guide adapted across 4 cohorts (traditional omnivore · vegetarian/vegan · therapeutic/clinical · northern/budget-constrained)
+- **4 sample weekly meal plans** for PSWs — 7-day breakfast/lunch/dinner/snack menus, each with a **mini budget** (2026 CAD estimates)
+- Beat the prices with the live flyer deal tool [price-ninja](https://8lueprint3.github.io/price-ninja/) (search `chicken`, `canned salmon`, `frozen vegetables`, filter *On Sale / Under $5*)
+- Clinical guardrails: iron, B12, glycemic control, vitamin-A/mercury/lead limits, safe preservation
+
+---
+
 ## 🧭 Quick reference
 
 - **Always acknowledge first, stay in scope, document facts, escalate.**
@@ -78,3 +93,4 @@
 - [`evidence-guide.html`](evidence-guide.html) — how to document events so the record stands up (DARP, do/don't, reporting targets)
 - [`can-i-record.html`](can-i-record.html) — consent guide: what a PSW can/should record (and what to do instead)
 - [`wellness-exercises.html`](wellness-exercises.html) — exercise & alertness guide: body-weight routines for PSWs to stay healthy (pre/post-shift, strength, back care)
+- [`indigenous-nutrition-navigator.md`](indigenous-nutrition-navigator.md) — culturally safe meal guidance + 4 weekly PSW meal plans with budgets
