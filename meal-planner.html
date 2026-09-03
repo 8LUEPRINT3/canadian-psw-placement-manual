@@ -52,6 +52,15 @@ td.meals b{color:#e6edf3}
 .pill{display:inline-block;background:#1f6feb22;border:1px solid #1f6feb66;color:#58a6ff;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;margin-right:6px}
 .hidden{display:none}
 .warn{background:#da363322;border:1px solid #da363355;color:#ff7b72;border-radius:8px;padding:10px 14px;font-size:12px;margin-top:12px;line-height:1.5}
+/* calorie counter */
+.cc-row{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #21262d;font-size:13px}
+.cc-row .rm{background:none;border:none;color:#f85149;cursor:pointer;font-size:15px;padding:0 4px}
+.cc-bar{height:10px;background:#0d1117;border:1px solid #21262d;border-radius:6px;overflow:hidden;margin:12px 0 6px}
+.cc-bar-fill{height:100%;background:#238636;transition:width .3s}
+.cc-bar-fill.over{background:#f85149}
+.cc-totals{display:flex;gap:14px;flex-wrap:wrap;margin:4px 0 8px;font-size:13px}
+.cc-totals b{color:#58a6ff}
+.cc-empty{color:#484f58;font-size:12px;padding:6px 0}
 </style>
 </head>
 <body>
@@ -104,6 +113,31 @@ td.meals b{color:#e6edf3}
     </div>
     <button class="btn-gen" onclick="generate()">Generate my plan</button>
     <div class="note">Everything runs in your browser — nothing is uploaded. Guidance is educational, not medical advice.</div>
+  </div>
+
+  <div class="card">
+    <h2>🔢 Calorie counter <span class="pill">today</span></h2>
+    <div class="grid">
+      <div class="field">
+        <label>Daily target (kcal)</label>
+        <input type="number" id="cc-target" value="2300" min="500" max="8000" step="50"/>
+      </div>
+      <div class="field">
+        <label>Food</label>
+        <input type="text" id="cc-name" placeholder="e.g. Chicken breast"/>
+      </div>
+      <div class="field">
+        <label>Calories</label>
+        <input type="number" id="cc-cal" placeholder="e.g. 300" min="0" step="5"/>
+      </div>
+      <div class="field">
+        <label>Protein (g, optional)</label>
+        <input type="number" id="cc-prot" placeholder="optional" min="0" step="1"/>
+      </div>
+    </div>
+    <button class="btn-gen" onclick="addFood()">+ Add food</button>
+    <div id="ccSummary"></div>
+    <div class="note">Auto-saves in your browser (localStorage), reset daily. Your plan's calorie target fills in here automatically when you hit "Generate my plan".</div>
   </div>
 
   <div id="results" class="hidden">
@@ -236,6 +270,63 @@ const BUDGETS = {
 
 let unit = "kg";
 
+// ===== CALORIE COUNTER =====
+function esc(s){return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));}
+const CC_KEY = "mealplanner_cc";
+function ccToday(){ return new Date().toISOString().slice(0,10); }
+function ccLoad(){
+  try { const d = JSON.parse(localStorage.getItem(CC_KEY) || "{}"); return Array.isArray(d[ccToday()]) ? d[ccToday()] : []; }
+  catch(e){ return []; }
+}
+function ccSave(list){
+  let d = {};
+  try { d = JSON.parse(localStorage.getItem(CC_KEY) || "{}"); } catch(e){ d = {}; }
+  d[ccToday()] = list;
+  localStorage.setItem(CC_KEY, JSON.stringify(d));
+}
+function ccRender(){
+  const list = ccLoad();
+  const target = parseFloat(document.getElementById("cc-target").value) || 2300;
+  let cal = 0, prot = 0;
+  list.forEach(f => { cal += f.cal || 0; prot += f.prot || 0; });
+  const rem = target - cal;
+  const pct = Math.min(100, Math.round((cal / target) * 100));
+  const over = cal > target;
+  let html = `<div class="cc-bar"><div class="cc-bar-fill ${over ? 'over' : ''}" style="width:${pct}%"></div></div>`;
+  html += `<div class="cc-totals"><span>Eaten: <b>${cal}</b> kcal</span><span>Remaining: <b style="${over ? 'color:#f85149' : ''}">${over ? '+' : ''}${Math.abs(rem)}</b></span><span>Protein: <b>${prot}g</b></span></div>`;
+  if(!list.length){
+    html += `<div class="cc-empty">Nothing logged today yet — add your first food above.</div>`;
+  } else {
+    html += list.map((f,i) => `<div class="cc-row"><span>${esc(f.name)} <span class="p-meta">${f.prot ? f.prot + 'g · ' : ''}${f.cal} kcal</span></span><button class="rm" onclick="ccRemove(${i})">×</button></div>`).join("");
+    html += `<div class="cc-row" style="border-bottom:none"><button class="rm" style="color:#8b949e;font-size:12px" onclick="ccReset()">🗑 clear today</button></div>`;
+  }
+  document.getElementById("ccSummary").innerHTML = html;
+}
+function addFood(){
+  const name = document.getElementById("cc-name").value.trim();
+  const cal = parseInt(document.getElementById("cc-cal").value, 10);
+  const prot = parseInt(document.getElementById("cc-prot").value, 10) || 0;
+  if(!name || !cal){ alert("Enter a food name and its calories."); return; }
+  const list = ccLoad();
+  list.push({ name, cal, prot });
+  ccSave(list);
+  document.getElementById("cc-name").value = "";
+  document.getElementById("cc-cal").value = "";
+  document.getElementById("cc-prot").value = "";
+  ccRender();
+}
+function ccRemove(i){
+  const list = ccLoad();
+  list.splice(i, 1);
+  ccSave(list);
+  ccRender();
+}
+function ccReset(){
+  if(!confirm("Clear everything logged today?")) return;
+  ccSave([]);
+  ccRender();
+}
+
 function setUnit(u){
   unit = u;
   document.getElementById("u-kg").classList.toggle("active", u==="kg");
@@ -275,6 +366,8 @@ function generate(){
   const activity = parseFloat(document.getElementById("activity").value);
 
   const t = computeTargets(weightKg, goal, activity);
+  document.getElementById("cc-target").value = t.cal;
+  ccRender();
 
   // render macros
   document.getElementById("macroRow").innerHTML = `
@@ -335,6 +428,8 @@ function generate(){
   document.getElementById("results").classList.remove("hidden");
   document.getElementById("results").scrollIntoView({behavior:"smooth"});
 }
+
+ccRender();
 </script>
 </body>
 </html>
