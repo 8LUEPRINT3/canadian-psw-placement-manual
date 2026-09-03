@@ -60,6 +60,21 @@
 
 ---
 
+## 🍽️ Meal Planner (your specifics, your plan)
+
+**Interactive tool — enter weight, goal, and diet type to generate a personalized 7-day plan + grocery budget.**
+
+[**Open the Meal Planner →**](https://8lueprint3.github.io/canadian-psw-placement-manual/meal-planner.html)
+
+- Enter your **weight** (kg/lb), **goal** (lose fat + gain muscle · cut · bulk · maintain), and **diet type** (traditional omnivore · lactose-free · vegetarian · vegan · northern/budget)
+- Instantly gets your **daily calorie + macro targets** (protein 1.6–2.2 g/kg based on goal)
+- Generates a **7-day breakfast/lunch/dinner/snack plan** with per-meal protein + calories
+- Auto-flags if protein comes up short vs your target
+- Produces a **grocery budget** (2026 CAD estimates) + a link to [price-ninja](https://8lueprint3.github.io/price-ninja/) to beat the prices
+- 100% browser-local, mobile-friendly, no signup
+
+---
+
 ## 🍲 Meal Plans & Nutrition (Indigenous Nutrition Navigator)
 
 **Culturally safe, no-shame meal guidance across all diet types — with weekly PSW-ready meal plans and mini budgets.**
@@ -94,3 +109,4 @@
 - [`can-i-record.html`](can-i-record.html) — consent guide: what a PSW can/should record (and what to do instead)
 - [`wellness-exercises.html`](wellness-exercises.html) — exercise & alertness guide: body-weight routines for PSWs to stay healthy (pre/post-shift, strength, back care)
 - [`indigenous-nutrition-navigator.md`](indigenous-nutrition-navigator.md) — culturally safe meal guidance + 4 weekly PSW meal plans with budgets
+- [`meal-planner.html`](meal-planner.html) — interactive meal planner: weight + goal + diet type → 7-day plan + budget

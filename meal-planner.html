@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>🍽️ meal-planner — your specifics, your plan</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;min-height:100vh;padding-bottom:60px}
+.header{background:#010409;border-bottom:1px solid #21262d;padding:16px 24px}
+.header-inner{max-width:1100px;margin:0 auto}
+.logo{font-size:22px;font-weight:800;color:#58a6ff;letter-spacing:1px}
+.logo span{color:#484f58;font-weight:400}
+.tagline{font-size:12px;color:#8b949e;margin-top:4px}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+.card{background:#161b22;border:1px solid #21262d;border-radius:10px;padding:20px;margin-top:16px}
+.card h2{font-size:15px;font-weight:700;margin-bottom:14px;color:#e6edf3}
+.card h2 .ico{margin-right:6px}
+/* form */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.field label{display:block;font-size:11px;color:#8b949e;margin-bottom:6px;font-weight:600;text-transform:uppercase;letter-spacing:.5px}
+.field input,.field select{width:100%;background:#0d1117;border:1px solid #30363d;color:#e6edf3;padding:10px 12px;border-radius:8px;font-size:14px;outline:none}
+.field input:focus,.field select:focus{border-color:#58a6ff}
+.unit-toggle{display:flex;gap:6px;margin-top:6px}
+.unit-toggle button{flex:1;background:#0d1117;border:1px solid #30363d;color:#8b949e;padding:8px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600}
+.unit-toggle button.active{background:#1f6feb22;border-color:#58a6ff;color:#58a6ff}
+.btn-gen{background:#238636;border:none;color:#fff;padding:12px 26px;border-radius:8px;font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;transition:background .2s}
+.btn-gen:hover{background:#2ea043}
+.btn-gen:disabled{background:#1a3a1a;color:#484f58;cursor:not-allowed}
+/* macros */
+.macro-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:12px}
+.macro{background:#0d1117;border:1px solid #21262d;border-radius:8px;padding:14px;text-align:center}
+.macro .num{font-size:22px;font-weight:800;color:#58a6ff}
+.macro .lbl{font-size:11px;color:#8b949e;margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+.macro .sub{font-size:10px;color:#484f58;margin-top:2px}
+/* plan table */
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;color:#8b949e;font-size:11px;text-transform:uppercase;letter-spacing:.5px;padding:8px 10px;border-bottom:1px solid #21262d}
+td{padding:10px;border-bottom:1px solid #21262d;vertical-align:top}
+td.day{font-weight:700;color:#58a6ff;white-space:nowrap}
+td.meals{color:#c9d1d9}
+td.meals b{color:#e6edf3}
+.p-meta{color:#8b949e;font-size:11px}
+/* budget */
+.budget-line{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #21262d;font-size:13px}
+.budget-line:last-child{border-bottom:none}
+.budget-line.total{font-weight:700;color:#58a6ff;font-size:15px;border-top:1px solid #30363d;margin-top:4px;padding-top:12px}
+.budget-line .qty{color:#8b949e;font-size:12px}
+.note{font-size:12px;color:#8b949e;line-height:1.5;margin-top:10px}
+.note a{color:#58a6ff;text-decoration:none}
+.note a:hover{text-decoration:underline}
+.pill{display:inline-block;background:#1f6feb22;border:1px solid #1f6feb66;color:#58a6ff;padding:2px 10px;border-radius:20px;font-size:11px;font-weight:600;margin-right:6px}
+.hidden{display:none}
+.warn{background:#da363322;border:1px solid #da363355;color:#ff7b72;border-radius:8px;padding:10px 14px;font-size:12px;margin-top:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="header-inner">
+    <div class="logo">🍽️ meal-planner <span>/ your specifics</span></div>
+    <div class="tagline">Weight · goal · diet type → a full 7-day plan + grocery budget, built on the Indigenous Nutrition Navigator's Two-Eyed Seeing framework.</div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="card">
+    <h2>⚙️ Your details</h2>
+    <div class="grid">
+      <div class="field">
+        <label>Weight</label>
+        <input type="number" id="weight" value="100" min="30" max="300" step="0.5"/>
+        <div class="unit-toggle">
+          <button id="u-kg" class="active" onclick="setUnit('kg')">kg</button>
+          <button id="u-lb" onclick="setUnit('lb')">lb</button>
+        </div>
+      </div>
+      <div class="field">
+        <label>Goal</label>
+        <select id="goal">
+          <option value="recomp">Lose fat + gain muscle</option>
+          <option value="cut">Lose fat (cut)</option>
+          <option value="gain">Gain muscle (bulk)</option>
+          <option value="maintain">Maintain weight</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Diet type</label>
+        <select id="diet">
+          <option value="omnivore">Traditional omnivore</option>
+          <option value="lactose">Lactose-free</option>
+          <option value="veg">Vegetarian</option>
+          <option value="vegan">Vegan</option>
+          <option value="northern">Northern / budget</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Activity level</label>
+        <select id="activity">
+          <option value="1.375">Light (1–2 workouts/wk)</option>
+          <option value="1.55" selected>Moderate (3–4 workouts/wk)</option>
+          <option value="1.725">Very active (5–6/wk)</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-gen" onclick="generate()">Generate my plan</button>
+    <div class="note">Everything runs in your browser — nothing is uploaded. Guidance is educational, not medical advice.</div>
+  </div>
+
+  <div id="results" class="hidden">
+    <div class="card">
+      <h2>🎯 Your daily targets</h2>
+      <div class="macro-row" id="macroRow"></div>
+      <div class="note">Protein is the anchor (1.6–2.2 g/kg depending on goal). Lactose-free swaps keep the same protein — only milk sugar is removed. Vegan plans get a B12 note automatically.</div>
+    </div>
+
+    <div class="card">
+      <h2>📅 7-day meal plan</h2>
+      <table id="planTable">
+        <thead><tr><th>Day</th><th>Breakfast</th><th>Lunch</th><th>Dinner</th><th>Snack</th></tr></thead>
+        <tbody></tbody>
+      </table>
+      <div id="planWarn"></div>
+    </div>
+
+    <div class="card">
+      <h2>🛒 Grocery budget <span class="pill" id="budgetTag"></span></h2>
+      <div id="budgetList"></div>
+      <div class="note">Prices are 2026 CAD estimates for one adult/week. Beat them with <a href="https://8lueprint3.github.io/price-ninja/" target="_blank">🥷 price-ninja</a> — search <b>chicken breast</b>, <b>eggs</b>, <b>salmon</b>, <b>frozen vegetables</b> and filter <i>On Sale / Under $5</i>.</div>
+    </div>
+
+    <div class="card">
+      <h2>⚠️ The fine print that makes it work</h2>
+      <div class="note" style="font-size:13px">
+        • <b>Lift heavy 3–4×/week</b> (progressive overload) — diet without lifting = you just shrink.<br/>
+        • <b>Sleep 7–9 h</b> — muscle builds and fat burns while you sleep.<br/>
+        • <b>8–10k steps/day</b> — low-effort fat loss.<br/>
+        • <b>Water 3 L/day</b> — dehydration is the #1 killer of energy and focus.
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ===== FOOD DATABASE =====
+// tags: o=omnivore, l=lactose-free, vg=vegetarian, vn=vegan, n=northern/budget
+const FOODS = {
+  breakfast: [
+    {name:"Oatmeal + frozen berries", p:12, cal:320, tags:["o","l","vg","vn","n"]},
+    {name:"3 eggs + whole-grain toast + spinach", p:28, cal:420, tags:["o","l","vg"]},
+    {name:"Greek yogurt + oats + banana", p:30, cal:430, tags:["o","vg"]},
+    {name:"Lactose-free yogurt + oats + banana", p:30, cal:430, tags:["o","l","vg"]},
+    {name:"Tofu scramble + toast", p:25, cal:380, tags:["o","l","vg","vn"]},
+    {name:"Oatmeal + powdered milk + raisins", p:16, cal:360, tags:["o","l","n"]},
+    {name:"Smoothie (fortified plant milk, berries, oats)", p:15, cal:340, tags:["o","l","vg","vn"]},
+    {name:"Scrambled eggs + soft beans", p:26, cal:400, tags:["o","l","vg"]},
+  ],
+  lunch: [
+    {name:"Chicken breast + rice + broccoli", p:45, cal:550, tags:["o","l"]},
+    {name:"Lean ground beef + rice + peppers", p:40, cal:580, tags:["o","l"]},
+    {name:"Canned tuna sandwich + spinach", p:38, cal:480, tags:["o","l"]},
+    {name:"Lentil soup + whole-grain bread", p:28, cal:460, tags:["o","l","vg","vn"]},
+    {name:"Three Sisters chili (corn/beans/squash)", p:25, cal:440, tags:["o","l","vg","vn"]},
+    {name:"Tofu stir-fry + rice + broccoli", p:32, cal:500, tags:["o","l","vg","vn"]},
+    {name:"Canned salmon + crackers + canned corn", p:35, cal:450, tags:["o","l","n"]},
+    {name:"Peanut butter sandwich + fruit", p:20, cal:470, tags:["o","l","vg","vn","n"]},
+    {name:"Moose/caribou stew + bannock", p:42, cal:520, tags:["o","l"]},
+  ],
+  dinner: [
+    {name:"Baked salmon + potatoes + green beans", p:35, cal:560, tags:["o","l"]},
+    {name:"Lean beef stir-fry + rice + broccoli", p:42, cal:600, tags:["o","l"]},
+    {name:"Roast chicken + potatoes + carrots", p:50, cal:620, tags:["o","l"]},
+    {name:"Chickpea curry + rice", p:28, cal:520, tags:["o","l","vg","vn"]},
+    {name:"Three Sisters stew + bannock", p:26, cal:500, tags:["o","l","vg","vn"]},
+    {name:"Veggie pasta + tomato sauce + beans", p:25, cal:530, tags:["o","l","vg","vn"]},
+    {name:"Lentil + rice casserole", p:28, cal:510, tags:["o","l","vg","vn","n"]},
+    {name:"Canned beans + rice + frozen veg", p:24, cal:470, tags:["o","l","vg","vn","n"]},
+    {name:"Canned stew + bread", p:22, cal:480, tags:["o","l","n"]},
+    {name:"Lake trout + wild rice + greens", p:38, cal:540, tags:["o","l"]},
+  ],
+  snack: [
+    {name:"Whey isolate shake + berries", p:28, cal:190, tags:["o","l"]},
+    {name:"Plant protein shake + banana", p:22, cal:210, tags:["o","l","vg","vn"]},
+    {name:"Apple + peanut butter", p:8, cal:250, tags:["o","l","vg","vn"]},
+    {name:"Nuts + dried fruit", p:8, cal:220, tags:["o","l","vg","vn"]},
+    {name:"Lactose-free Greek yogurt + berries", p:20, cal:180, tags:["o","l","vg"]},
+    {name:"Greek yogurt + berries", p:20, cal:180, tags:["o","vg"]},
+    {name:"Cheese + crackers", p:12, cal:260, tags:["o","vg"]},
+    {name:"Hummus + carrots", p:8, cal:180, tags:["o","l","vg","vn"]},
+    {name:"Trail mix", p:8, cal:230, tags:["o","l","vg","vn","n"]},
+    {name:"Banana", p:2, cal:105, tags:["o","l","vg","vn","n"]},
+  ],
+};
+
+// ===== BUDGET DATABASE (CAD, one adult/week) =====
+const BUDGETS = {
+  omnivore: [
+    ["Chicken breast (2 kg)", 26], ["Lean ground beef (1 kg)", 12], ["Salmon (4 fillets)", 20],
+    ["Canned tuna (3 cans)", 6], ["Eggs (2 doz)", 9], ["Greek yogurt (2 tubs)", 10],
+    ["Cottage cheese (2 tubs)", 8], ["Whey protein (wk share)", 11],
+    ["Oats (2 kg)", 7], ["Rice (2 kg)", 6], ["Potatoes (10 lb)", 6], ["Whole-grain bread", 3],
+    ["Frozen veg (4 bags)", 14], ["Spinach/greens", 5], ["Berries (frozen)", 5],
+    ["Bananas + apples", 8], ["Sweet potatoes", 4], ["Olive oil", 6], ["Peanut butter/nuts", 8],
+    ["Creatine + Vitamin D (wk share)", 11],
+  ],
+  lactose: [
+    ["Chicken breast (2 kg)", 26], ["Lean ground beef (1 kg)", 12], ["Salmon (4 fillets)", 20],
+    ["Canned tuna (3 cans)", 6], ["Eggs (2 doz)", 9], ["Lactose-free Greek yogurt (2 tubs)", 12],
+    ["Lactose-free cottage cheese (2 tubs)", 10], ["Whey isolate protein (wk share)", 12],
+    ["Oats (2 kg)", 7], ["Rice (2 kg)", 6], ["Potatoes (10 lb)", 6], ["Whole-grain bread", 3],
+    ["Frozen veg (4 bags)", 14], ["Spinach/greens", 5], ["Berries (frozen)", 5],
+    ["Bananas + apples", 8], ["Sweet potatoes", 4], ["Olive oil", 6], ["Peanut butter/nuts", 8],
+    ["Lactose-free milk (Fairlife/soy)", 5], ["Creatine + Vitamin D (wk share)", 11],
+  ],
+  veg: [
+    ["Tofu (3 packs)", 9], ["Dry lentils + chickpeas + beans (2 kg)", 7], ["Eggs (2 doz)", 9],
+    ["Greek yogurt (2 tubs)", 10], ["Oats (1 kg)", 4], ["Rice (2 kg)", 6],
+    ["Frozen veg + broccoli (3 bags)", 10], ["Berries (frozen)", 5],
+    ["Whole-grain bread/tortillas", 6], ["Peanut butter + hummus", 11],
+    ["Sweet potatoes + onions + fruit", 9], ["Seaweed + tomato sauce/pasta", 7],
+    ["Milk + cheese", 10], ["Creatine + Vitamin D + B12 (wk share)", 12],
+  ],
+  vegan: [
+    ["Tofu (3 packs)", 9], ["Dry lentils + chickpeas + beans (2 kg)", 7], ["Oats (1 kg)", 4],
+    ["Fortified plant milk (B12)", 4], ["Rice (2 kg)", 6], ["Frozen veg + broccoli (3 bags)", 10],
+    ["Berries (frozen)", 5], ["Whole-grain bread/tortillas", 6], ["Peanut butter + hummus", 11],
+    ["Sweet potatoes + onions + fruit", 9], ["Seaweed + tomato sauce/pasta", 7],
+    ["Plant protein + B12 (wk share)", 14],
+  ],
+  northern: [
+    ["Oats (1 kg)", 4], ["Powdered milk (1 kg)", 8], ["Rice + pasta (4 kg)", 8],
+    ["Dry lentils + beans (2 kg)", 7], ["Canned salmon/tuna/stew (6 cans)", 12],
+    ["Canned veg + tomato sauce", 10], ["Frozen veg (2 bags)", 7], ["Potatoes + onions", 6],
+    ["Peanut butter + crackers + bread", 9], ["Raisins + applesauce + bananas", 6],
+  ],
+};
+
+let unit = "kg";
+
+function setUnit(u){
+  unit = u;
+  document.getElementById("u-kg").classList.toggle("active", u==="kg");
+  document.getElementById("u-lb").classList.toggle("active", u==="lb");
+}
+
+function filterFoods(arr, diet){
+  return arr.filter(f => {
+    if(diet==="omnivore") return f.tags.includes("o");
+    if(diet==="lactose") return f.tags.includes("l");
+    if(diet==="veg") return f.tags.includes("vg");
+    if(diet==="vegan") return f.tags.includes("vn");
+    if(diet==="northern") return f.tags.includes("n");
+    return true;
+  });
+}
+
+function computeTargets(weightKg, goal, activity){
+  const bmr = 10*weightKg + 6.25*178 - 5*30 + 5; // Mifflin-St Jeor (male, 178cm, 30y defaults)
+  const maint = bmr * activity;
+  let cal, pRatio;
+  if(goal==="cut"){ cal = maint - 500; pRatio = 2.2; }
+  else if(goal==="gain"){ cal = maint + 300; pRatio = 1.8; }
+  else if(goal==="maintain"){ cal = maint; pRatio = 1.6; }
+  else { cal = maint - 300; pRatio = 2.0; } // recomp
+  const protein = Math.round(weightKg * pRatio);
+  const fat = Math.round((cal * 0.27) / 9);
+  const carbs = Math.round((cal - protein*4 - fat*9) / 4);
+  return { cal: Math.round(cal), protein, fat, carbs, maint: Math.round(maint) };
+}
+
+function generate(){
+  const w = parseFloat(document.getElementById("weight").value) || 100;
+  const weightKg = unit==="lb" ? w*0.4536 : w;
+  const goal = document.getElementById("goal").value;
+  const diet = document.getElementById("diet").value;
+  const activity = parseFloat(document.getElementById("activity").value);
+
+  const t = computeTargets(weightKg, goal, activity);
+
+  // render macros
+  document.getElementById("macroRow").innerHTML = `
+    <div class="macro"><div class="num">${t.cal}</div><div class="lbl">Calories</div><div class="sub">maint ~${t.maint}</div></div>
+    <div class="macro"><div class="num">${t.protein}g</div><div class="lbl">Protein</div><div class="sub">~${Math.round(weightKg)} kg body</div></div>
+    <div class="macro"><div class="num">${t.carbs}g</div><div class="lbl">Carbs</div><div class="sub">for energy</div></div>
+    <div class="macro"><div class="num">${t.fat}g</div><div class="lbl">Fat</div><div class="sub">hormones + brain</div></div>
+  `;
+
+  // build plan
+  const days = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+  const slots = ["breakfast","lunch","dinner","snack"];
+  const pools = {};
+  slots.forEach(s => pools[s] = filterFoods(FOODS[s], diet));
+
+  const tbody = document.querySelector("#planTable tbody");
+  tbody.innerHTML = "";
+  let weekProt = 0, weekCal = 0;
+
+  days.forEach((d, i) => {
+    const picks = {};
+    slots.forEach(s => {
+      const pool = pools[s];
+      picks[s] = pool[i % pool.length];
+    });
+    const dayP = slots.reduce((a,s)=>a+picks[s].p,0);
+    const dayC = slots.reduce((a,s)=>a+picks[s].cal,0);
+    weekProt += dayP; weekCal += dayC;
+    tbody.innerHTML += `<tr>
+      <td class="day">${d}</td>
+      <td class="meals"><b>${picks.breakfast.name}</b><br/><span class="p-meta">${picks.breakfast.p}g · ${picks.breakfast.cal} kcal</span></td>
+      <td class="meals"><b>${picks.lunch.name}</b><br/><span class="p-meta">${picks.lunch.p}g · ${picks.lunch.cal} kcal</span></td>
+      <td class="meals"><b>${picks.dinner.name}</b><br/><span class="p-meta">${picks.dinner.p}g · ${picks.dinner.cal} kcal</span></td>
+      <td class="meals"><b>${picks.snack.name}</b><br/><span class="p-meta">${picks.snack.p}g · ${picks.snack.cal} kcal</span></td>
+    </tr>`;
+  });
+
+  // plan warning
+  const avgP = Math.round(weekProt/7), avgC = Math.round(weekCal/7);
+  let warn = "";
+  if(avgP < t.protein){
+    const gap = t.protein - avgP;
+    warn = `⚠️ This template averages ~${avgP}g protein/day vs your ${t.protein}g target. Close the gap with an extra shake or larger protein portions (+${gap}g ≈ one more scoop/larger serving).`;
+  } else {
+    warn = `✅ Averages ~${avgP}g protein and ~${avgC} kcal/day — on target.`;
+  }
+  document.getElementById("planWarn").innerHTML = warn ? `<div class="warn">${warn}</div>` : "";
+
+  // render budget
+  const items = BUDGETS[diet];
+  const total = items.reduce((a,x)=>a+x[1],0);
+  const dietNames = {omnivore:"Traditional omnivore",lactose:"Lactose-free",veg:"Vegetarian",vegan:"Vegan",northern:"Northern / budget"};
+  document.getElementById("budgetTag").textContent = dietNames[diet];
+  document.getElementById("budgetList").innerHTML = items.map(x =>
+    `<div class="budget-line"><span>${x[0]}</span><span class="qty">$${x[1].toFixed(2)}</span></div>`
+  ).join("") + `<div class="budget-line total"><span>Total (≈/week)</span><span>$${total.toFixed(2)}</span></div>`;
+
+  document.getElementById("results").classList.remove("hidden");
+  document.getElementById("results").scrollIntoView({behavior:"smooth"});
+}
+</script>
+</body>
+</html>
