@@ -151,7 +151,7 @@
   <defs>
     <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
       <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="4" result="n"/>
-      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="0" xChannelSelector="R" yChannelSelector="G"/>
     </filter>
   </defs>
 </svg>
@@ -188,26 +188,26 @@
       <div class="panel bad">
         <h4>🚧 Bending at the waist</h4>
         <p class="sub">Spine as a <b>lever</b> — load amplifies at L4–L5</p>
-        <svg class="sketch" viewBox="0 0 170 200" role="img" aria-label="Person bending at the waist with a rounded back, red spine warning">
-          <path d="M56 108 L50 150 L46 186" stroke="#ea580c" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <path d="M56 108 L72 150 L78 186" stroke="#ea580c" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <ellipse cx="44" cy="190" rx="7" ry="4" fill="#475569"/>
-          <ellipse cx="80" cy="190" rx="7" ry="4" fill="#475569"/>
-          <path d="M56 108 C 88 76, 106 60, 118 50" stroke="#fb923c" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <path class="spine-bad" d="M56 108 C 88 76, 106 60, 118 50" stroke="#dc2626" stroke-width="5" stroke-linecap="round" fill="none"/>
-          <circle cx="124" cy="42" r="9" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M116 40 a9 9 0 0 1 16 0 z" fill="#475569"/>
-          <circle cx="121" cy="43" r="1.1" fill="#334155"/><circle cx="127" cy="43" r="1.1" fill="#334155"/>
-          <path d="M122 47 q2 2 4 0" stroke="#334155" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M118 52 L136 76 L138 100" stroke="#f3c6a5" stroke-width="9" stroke-linecap="round" fill="none"/>
-          <circle cx="138" cy="102" r="3.5" fill="#f3c6a5"/>
-          <g transform="translate(62,104)">
-            <path d="M0 -13 L11 6 L-11 6 Z" fill="#f59e0b"/>
+        <svg viewBox="0 0 170 200" role="img" aria-label="Person bending at the waist with a rounded back, red spine warning">
+          <ellipse cx="80" cy="191" rx="46" ry="6" fill="#0f172a" opacity=".08"/>
+          <path d="M60 114 L56 168 Q55 177 62 178 L72 178 Q78 178 76 168 L74 114 Z" fill="#e07f28"/>
+          <path d="M86 114 L90 168 Q91 177 84 178 L76 178 Q70 178 72 168 L72 114 Z" fill="#c96a1e"/>
+          <ellipse cx="66" cy="181" rx="11" ry="4.5" fill="#39434f"/>
+          <ellipse cx="82" cy="181" rx="11" ry="4.5" fill="#2f3942"/>
+          <path d="M60 114 Q52 96 56 74 L88 68 Q96 86 90 114 Z" fill="#f59e42"/>
+          <path d="M56 74 Q62 70 72 69 L88 68 Q84 78 80 84 Q70 76 56 74 Z" fill="#e07f28"/>
+          <path d="M58 78 Q44 96 40 114 Q39 120 44 120 Q49 120 50 114 L54 94 Z" fill="#f4bd8d"/>
+          <circle cx="44" cy="121" r="4.2" fill="#e3a06a"/>
+          <circle cx="82" cy="50" r="14" fill="#f4bd8d"/>
+          <path d="M68 48 Q69 30 84 33 Q97 34 96 48 Q96 40 84 37 Q72 37 68 48 Z" fill="#3a2a20"/>
+          <circle cx="76" cy="50" r="1.8" fill="#2a2019"/><circle cx="86" cy="50" r="1.8" fill="#2a2019"/>
+          <path d="M78 57 q4 3 8 0" stroke="#2a2019" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path class="spine-bad" d="M62 114 C 56 96, 58 80, 66 66" stroke="#dc2626" stroke-width="4" fill="none" stroke-linecap="round"/>
+          <g transform="translate(46,106)">
+            <path d="M0 -12 L11 6 L-11 6 Z" fill="#f59e0b"/>
             <text x="0" y="3" text-anchor="middle" font-size="12" font-weight="800" fill="#7c2d12">!</text>
           </g>
-          <line x1="92" y1="88" x2="120" y2="62" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="3 3"/>
-          <polygon points="120,62 115,72 125,72" fill="#dc2626"/>
-          <text x="104" y="86" font-size="10" font-weight="700" fill="#b91c1c">shear</text>
+          <text x="24" y="150" font-size="9.5" font-weight="700" fill="#b91c1c" transform="rotate(-90 24 150)">shear @ L4-L5</text>
         </svg>
         <ul>
           <li>Load concentrated on the lumbar discs</li>
@@ -218,27 +218,27 @@
       <div class="panel good">
         <h4>✅ Squatting, neutral spine</h4>
         <p class="sub">Spine as a <b>crane</b> — load spreads to glutes &amp; quads</p>
-        <svg class="sketch" viewBox="0 0 170 200" role="img" aria-label="Person squatting with a neutral straight spine, load distributed to legs">
-          <circle cx="70" cy="30" r="9" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M62 28 a9 9 0 0 1 16 0 z" fill="#475569"/>
-          <circle cx="67" cy="31" r="1.1" fill="#334155"/><circle cx="73" cy="31" r="1.1" fill="#334155"/>
-          <path d="M68 35 q2 2 4 0" stroke="#334155" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <path d="M70 118 L70 56" stroke="#14b8a6" stroke-width="16" stroke-linecap="round" fill="none"/>
-          <path class="spine-good" d="M70 118 L70 56" stroke="#16a34a" stroke-width="5" stroke-linecap="round" fill="none"/>
-          <path d="M70 118 L48 146" stroke="#0f766e" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <path d="M70 118 L92 146" stroke="#0f766e" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <path d="M48 146 L44 186" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <path d="M92 146 L96 186" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <ellipse cx="42" cy="190" rx="7" ry="4" fill="#475569"/>
-          <ellipse cx="98" cy="190" rx="7" ry="4" fill="#475569"/>
-          <path d="M70 62 L102 82" stroke="#f3c6a5" stroke-width="9" stroke-linecap="round" fill="none"/>
-          <path d="M70 70 L100 88" stroke="#f3c6a5" stroke-width="9" stroke-linecap="round" fill="none"/>
-          <circle cx="104" cy="82" r="3.5" fill="#f3c6a5"/><circle cx="102" cy="88" r="3.5" fill="#f3c6a5"/>
+        <svg viewBox="0 0 170 200" role="img" aria-label="Person squatting with a neutral straight spine, load distributed to legs">
+          <ellipse cx="72" cy="191" rx="48" ry="6" fill="#0f172a" opacity=".08"/>
+          <path d="M54 116 Q44 136 42 156 L42 172 Q42 178 50 178 L58 178 Q64 178 62 172 L62 150 Q70 138 78 134 Z" fill="#0d7a6e"/>
+          <path d="M90 116 Q100 136 102 156 L102 172 Q102 178 94 178 L86 178 Q80 178 82 172 L82 150 Q74 138 66 134 Z" fill="#0a5f55"/>
+          <ellipse cx="52" cy="181" rx="12" ry="4.5" fill="#39434f"/>
+          <ellipse cx="92" cy="181" rx="12" ry="4.5" fill="#2f3942"/>
+          <path d="M48 64 Q44 96 48 116 L96 116 Q100 96 96 64 Q82 54 72 54 Q60 54 48 64 Z" fill="#17b3a2"/>
+          <path d="M48 64 Q58 58 72 56 L96 64 L96 74 Q74 70 58 76 L48 74 Z" fill="#0f8f82"/>
+          <path d="M48 68 Q34 80 32 96 Q31 102 36 102 Q41 102 42 96 L48 78 Z" fill="#f4bd8d"/>
+          <circle cx="34" cy="104" r="4.5" fill="#e3a06a"/>
+          <path d="M96 68 Q110 80 112 96 Q113 102 108 102 Q103 102 102 96 L96 78 Z" fill="#f4bd8d"/>
+          <circle cx="110" cy="104" r="4.5" fill="#e3a06a"/>
+          <circle cx="72" cy="38" r="14" fill="#f4bd8d"/>
+          <path d="M58 36 Q58 18 72 20 Q88 20 86 36 Q86 28 72 26 Q60 26 58 36 Z" fill="#3a2a20"/>
+          <circle cx="66" cy="38" r="1.8" fill="#2a2019"/><circle cx="78" cy="38" r="1.8" fill="#2a2019"/>
+          <path d="M69 44 q3.5 3 7 0" stroke="#2a2019" stroke-width="1.3" fill="none" stroke-linecap="round"/>
+          <path class="spine-good" d="M72 116 L72 54" stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round"/>
           <g fill="#16a34a">
-            <polygon points="56,132 52,142 60,142"/><polygon points="84,132 80,142 88,142"/>
-            <polygon points="50,152 46,162 54,162"/><polygon points="90,152 86,162 94,162"/>
+            <polygon points="56,124 52,134 60,134"/><polygon points="88,124 84,134 92,134"/>
           </g>
-          <text x="34" y="172" font-size="9.5" font-weight="700" fill="#065f46">glutes + quads</text>
+          <text x="30" y="176" font-size="9.5" font-weight="700" fill="#065f46">glutes + quads</text>
         </svg>
         <ul>
           <li>Load distributed across the big leg muscles</li>
@@ -261,21 +261,30 @@
 
     <h3>Your working muscles — a quick map</h3>
     <div class="mmap">
-      <svg class="sketch" viewBox="0 0 200 220" role="img" aria-label="Front body muscle map highlighting shoulders, core, quads and calves">
-        <circle cx="100" cy="26" r="14" fill="#f1f5f9" stroke="#475569" stroke-width="2.5"/>
-        <path d="M100 40 L100 50" stroke="#475569" stroke-width="2.5"/>
-        <path d="M68 62 q32 -14 64 0 v50 q-32 12 -64 0 z" fill="#f1f5f9" stroke="#475569" stroke-width="2.5"/>
-        <path d="M68 66 q-18 14 -20 40" stroke="#475569" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M132 66 q18 14 20 40" stroke="#475569" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <path d="M78 112 L74 172" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
-        <path d="M122 112 L126 172" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
-        <circle class="muscle-zone" cx="60" cy="74" r="8" fill="#94a3b8"/>
-        <circle class="muscle-zone" cx="140" cy="74" r="8" fill="#94a3b8"/>
-        <ellipse class="muscle-zone" cx="100" cy="78" rx="16" ry="12" fill="#5eead4"/>
-        <rect class="muscle-zone" x="74" y="116" width="16" height="30" rx="7" fill="#4ade80"/>
-        <rect class="muscle-zone" x="110" y="116" width="16" height="30" rx="7" fill="#4ade80"/>
-        <rect class="muscle-zone" x="74" y="152" width="12" height="18" rx="5" fill="#fbbf24"/>
-        <rect class="muscle-zone" x="114" y="152" width="12" height="18" rx="5" fill="#fbbf24"/>
+      <svg viewBox="0 0 200 220" role="img" aria-label="Front body muscle map highlighting shoulders, core, quads and calves">
+        <ellipse cx="100" cy="212" rx="46" ry="6" fill="#0f172a" opacity=".08"/>
+        <path d="M80 120 L74 204 Q73 208 79 208 L91 208 Q97 208 95 204 L92 120 Z" fill="#0d7a6e"/>
+        <path d="M108 120 L105 204 Q105 208 111 208 L121 208 Q127 208 125 204 L120 120 Z" fill="#0a5f55"/>
+        <ellipse cx="85" cy="210" rx="11" ry="4.5" fill="#3a3f4a"/>
+        <ellipse cx="115" cy="210" rx="11" ry="4.5" fill="#2f343c"/>
+        <path d="M64 56 Q62 118 74 122 L126 122 Q138 118 136 56 Q112 44 100 44 Q80 44 64 56 Z" fill="#1aa89b"/>
+        <path d="M64 56 Q80 48 100 48 Q120 48 136 56 L136 66 Q118 58 100 58 Q82 58 64 66 Z" fill="#0e7f74"/>
+        <path d="M92 44 L92 54 L108 54 L108 44 Z" fill="#e8b285"/>
+        <circle cx="100" cy="32" r="15" fill="#f7cba0"/>
+        <path d="M85 30 Q87 12 100 14 Q116 12 115 30 Q115 22 100 21 Q88 22 85 30 Z" fill="#3a2a20"/>
+        <circle cx="94" cy="32" r="2" fill="#2a2019"/><circle cx="106" cy="32" r="2" fill="#2a2019"/>
+        <path d="M96 39 q4 3 8 0" stroke="#2a2019" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+        <path d="M64 60 L54 122 Q53 127 58 127 Q63 127 65 122 L72 66 Z" fill="#f7cba0"/>
+        <circle cx="58" cy="129" r="4.5" fill="#e8b285"/>
+        <path d="M136 60 L146 122 Q147 127 142 127 Q137 127 135 122 L128 66 Z" fill="#e8b285"/>
+        <circle cx="142" cy="129" r="4.5" fill="#d99a68"/>
+        <circle class="muscle-zone" cx="60" cy="74" r="11" fill="#94a3b8"/>
+        <circle class="muscle-zone" cx="140" cy="74" r="11" fill="#94a3b8"/>
+        <ellipse class="muscle-zone" cx="100" cy="92" rx="20" ry="16" fill="#5eead4"/>
+        <rect class="muscle-zone" x="76" y="126" width="18" height="34" rx="8" fill="#4ade80"/>
+        <rect class="muscle-zone" x="106" y="126" width="18" height="34" rx="8" fill="#4ade80"/>
+        <rect class="muscle-zone" x="78" y="166" width="13" height="20" rx="5" fill="#fbbf24"/>
+        <rect class="muscle-zone" x="109" y="166" width="13" height="20" rx="5" fill="#fbbf24"/>
       </svg>
       <ul class="legend">
         <li><i style="background:#94a3b8"></i><span><b>Shoulders</b> — lifting, rolling, and steadying during transfers</span></li>
@@ -352,36 +361,45 @@
 
     <div class="vig">
       <div class="vcard">
-        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Wall sit: back flat against a wall, knees and hips at 90 degrees">
-          <rect x="16" y="4" width="10" height="122" rx="4" fill="#e2e8f0"/>
-          <circle cx="52" cy="20" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M45 18 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <circle cx="49" cy="21" r="1" fill="#334155"/><circle cx="55" cy="21" r="1" fill="#334155"/>
-          <path d="M50 25 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M50 30 L52 72" stroke="#14b8a6" stroke-width="15" stroke-linecap="round" fill="none"/>
-          <path d="M52 72 L88 76" stroke="#0f766e" stroke-width="12" stroke-linecap="round" fill="none"/>
-          <path d="M88 76 L90 110" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <ellipse cx="92" cy="114" rx="5" ry="3.5" fill="#475569"/>
-          <path d="M132 52 h20" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="4 4"/>
-          <text x="132" y="76" font-size="11" font-weight="800" fill="#0f766e">90°</text>
+        <svg viewBox="0 0 160 130" role="img" aria-label="Wall sit: back flat against a wall, knees and hips at 90 degrees">
+          <rect x="18" y="6" width="10" height="116" rx="4" fill="#e2e8f0"/>
+          <ellipse cx="72" cy="120" rx="30" ry="4" fill="#0f172a" opacity=".08"/>
+          <path d="M44 74 L92 78 Q100 78 100 88 L100 102 Q100 108 92 108 L52 108 Q44 108 44 100 L44 82 Q44 74 52 76 Z" fill="#0d7a6e"/>
+          <path d="M44 74 L52 76 L52 108 L44 108 Z" fill="#0a5f55"/>
+          <ellipse cx="76" cy="110" rx="12" ry="4" fill="#3a3f4a"/>
+          <path d="M34 24 Q32 56 38 74 L60 76 Q66 54 64 24 Q52 16 48 16 Q40 16 34 24 Z" fill="#1aa89b"/>
+          <path d="M34 24 Q42 19 48 19 Q54 19 64 24 L64 34 Q48 32 38 36 Z" fill="#0e7f74"/>
+          <path d="M44 14 L44 22 L54 22 L54 14 Z" fill="#e8b285"/>
+          <circle cx="50" cy="9" r="9" fill="#f7cba0"/>
+          <path d="M41 9 Q43 -2 50 0 Q59 -2 59 9 Q59 1 50 1 Q43 1 41 9 Z" fill="#3a2a20"/>
+          <circle cx="46" cy="10" r="1.3" fill="#2a2019"/><circle cx="54" cy="10" r="1.3" fill="#2a2019"/>
+          <path d="M47 14 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path d="M38 30 L32 54 Q31 58 35 58 Q39 58 40 54 L46 32 Z" fill="#f7cba0"/>
+          <circle cx="35" cy="59" r="3.2" fill="#e8b285"/>
+          <path d="M116 50 h20" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="118" y="74" font-size="11" font-weight="800" fill="#0f766e">90°</text>
         </svg>
         <div class="vl">Wall sit</div>
         <div class="vr">30–60s · knees &amp; hips at 90°</div>
       </div>
       <div class="vcard">
-        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Standing hip extension: hands on lower back, gentle backward lean">
-          <circle cx="80" cy="20" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M73 18 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <circle cx="77" cy="21" r="1" fill="#334155"/><circle cx="83" cy="21" r="1" fill="#334155"/>
-          <path d="M78 25 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M80 28 L80 60" stroke="#14b8a6" stroke-width="15" stroke-linecap="round" fill="none"/>
-          <path d="M80 60 L66 110" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <path d="M80 60 L94 110" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <ellipse cx="64" cy="114" rx="5" ry="3.5" fill="#475569"/>
-          <ellipse cx="96" cy="114" rx="5" ry="3.5" fill="#475569"/>
-          <path d="M80 42 L66 54 L64 70" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
-          <path d="M80 42 L94 54 L96 70" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
-          <circle cx="64" cy="72" r="3" fill="#f3c6a5"/><circle cx="96" cy="72" r="3" fill="#f3c6a5"/>
+        <svg viewBox="0 0 160 130" role="img" aria-label="Standing hip extension: hands on lower back, gentle backward lean">
+          <ellipse cx="80" cy="120" rx="30" ry="4" fill="#0f172a" opacity=".08"/>
+          <path d="M72 58 L68 112 Q67 117 73 117 L79 117 Q85 117 84 112 L82 58 Z" fill="#0d7a6e"/>
+          <path d="M88 58 L92 112 Q93 117 87 117 L81 117 Q75 117 76 112 L78 58 Z" fill="#0a5f55"/>
+          <ellipse cx="74" cy="119" rx="9" ry="4" fill="#3a3f4a"/>
+          <ellipse cx="90" cy="119" rx="9" ry="4" fill="#2f343c"/>
+          <path d="M62 58 Q60 32 66 22 Q76 14 84 22 Q92 32 94 58 Q82 64 74 64 Q66 62 62 58 Z" fill="#1aa89b"/>
+          <path d="M62 58 Q70 62 80 62 Q90 62 94 58 L94 46 Q86 50 74 50 Q66 50 62 46 Z" fill="#0e7f74"/>
+          <path d="M75 14 L75 22 L85 22 L85 14 Z" fill="#e8b285"/>
+          <circle cx="80" cy="9" r="10" fill="#f7cba0"/>
+          <path d="M70 8 Q72 -3 80 -1 Q90 -3 90 8 Q90 0 80 0 Q72 0 70 8 Z" fill="#3a2a20"/>
+          <circle cx="75" cy="10" r="1.4" fill="#2a2019"/><circle cx="85" cy="10" r="1.4" fill="#2a2019"/>
+          <path d="M77 14 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path d="M66 34 L58 52 Q56 57 60 57 Q64 57 66 52 L72 36 Z" fill="#f7cba0"/>
+          <circle cx="59" cy="59" r="3.2" fill="#e8b285"/>
+          <path d="M94 34 L102 52 Q104 57 100 57 Q96 57 94 52 L88 36 Z" fill="#e8b285"/>
+          <circle cx="101" cy="59" r="3.2" fill="#d99a68"/>
           <path d="M120 96 q6 -10 10 -10" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
         <div class="vl">Hip extension</div>
@@ -416,34 +434,43 @@
 
     <div class="vig">
       <div class="vcard">
-        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Child's pose: hips on heels, arms extended forward">
-          <path d="M84 80 q0 22 18 22 q14 0 14 10" fill="none" stroke="#6366f1" stroke-width="11" stroke-linecap="round"/>
-          <path d="M84 80 q0 22 -18 22 q-14 0 -14 10" fill="none" stroke="#6366f1" stroke-width="11" stroke-linecap="round"/>
-          <path d="M60 66 L84 80" stroke="#818cf8" stroke-width="14" stroke-linecap="round" fill="none"/>
-          <circle cx="52" cy="60" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M45 58 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <path d="M66 74 L104 68" stroke="#818cf8" stroke-width="8" stroke-linecap="round" fill="none"/>
-          <circle cx="106" cy="68" r="3.5" fill="#f3c6a5"/>
-          <line x1="28" y1="20" x2="28" y2="114" stroke="#e2e8f0" stroke-width="3"/>
-          <text x="28" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#6366f1">mat</text>
+        <svg viewBox="0 0 160 130" role="img" aria-label="Child's pose: hips on heels, arms extended forward">
+          <line x1="20" y1="18" x2="20" y2="116" stroke="#e2e8f0" stroke-width="3"/>
+          <text x="20" y="12" text-anchor="middle" font-size="10" font-weight="700" fill="#6366f1">mat</text>
+          <ellipse cx="82" cy="118" rx="42" ry="5" fill="#0f172a" opacity=".08"/>
+          <path d="M52 110 Q50 88 60 80 L86 80 Q96 88 96 110 Q96 116 90 116 L58 116 Q52 116 52 110 Z" fill="#6366f1"/>
+          <path d="M52 110 Q56 105 62 102 L86 102 Q92 105 96 110 Q92 114 86 115 L58 115 Q54 114 52 110 Z" fill="#4f46e5"/>
+          <path d="M58 82 Q72 74 84 74 Q94 84 92 98 Q90 108 80 108 L66 108 Q54 98 58 82 Z" fill="#818cf8"/>
+          <path d="M62 78 L34 76 Q28 76 28 82 Q28 87 33 87 L62 88 Z" fill="#f7cba0"/>
+          <circle cx="30" cy="82" r="4" fill="#e8b285"/>
+          <path d="M88 78 L116 76 Q122 76 122 82 Q122 87 117 87 L88 88 Z" fill="#e8b285"/>
+          <circle cx="120" cy="82" r="4" fill="#d99a68"/>
+          <circle cx="82" cy="64" r="11" fill="#f7cba0"/>
+          <path d="M71 63 Q74 50 82 52 Q92 50 93 63 Q93 54 82 53 Q73 54 71 63 Z" fill="#3a2a20"/>
+          <circle cx="78" cy="65" r="1.5" fill="#2a2019"/><circle cx="87" cy="65" r="1.5" fill="#2a2019"/>
+          <path d="M79 70 q3.5 2.5 7 0" stroke="#2a2019" stroke-width="1.2" fill="none" stroke-linecap="round"/>
         </svg>
         <div class="vl">Child's pose</div>
         <div class="vr">30–60s · lengthen the low back</div>
       </div>
       <div class="vcard">
-        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Kneeling hip-flexor lunge: upright torso, pelvis tucked">
-          <path d="M70 28 L70 64" stroke="#818cf8" stroke-width="14" stroke-linecap="round" fill="none"/>
-          <circle cx="70" cy="20" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M63 18 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <circle cx="67" cy="21" r="1" fill="#334155"/><circle cx="73" cy="21" r="1" fill="#334155"/>
-          <path d="M68 25 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M70 64 L96 92 L98 118" stroke="#6366f1" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <ellipse cx="100" cy="120" rx="5" ry="3.5" fill="#475569"/>
-          <path d="M70 64 L46 96 L42 116" stroke="#6366f1" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <ellipse cx="40" cy="119" rx="5" ry="3.5" fill="#475569"/>
-          <path d="M70 36 L56 46 L54 64" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
-          <path d="M70 36 L84 44 L86 60" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
-          <circle cx="54" cy="66" r="3" fill="#f3c6a5"/><circle cx="86" cy="62" r="3" fill="#f3c6a5"/>
+        <svg viewBox="0 0 160 130" role="img" aria-label="Kneeling hip-flexor lunge: upright torso, pelvis tucked">
+          <ellipse cx="82" cy="120" rx="42" ry="5" fill="#0f172a" opacity=".08"/>
+          <path d="M74 58 L80 86 Q82 94 76 96 L66 98 Q58 98 58 90 L58 74 Q58 62 66 58 Z" fill="#6366f1"/>
+          <ellipse cx="60" cy="120" rx="9" ry="4" fill="#3a3f4a"/>
+          <path d="M80 86 L96 106 Q100 112 96 116 L88 118 Q82 118 82 112 L74 96 Z" fill="#4f46e5"/>
+          <ellipse cx="96" cy="119" rx="8" ry="4" fill="#2f343c"/>
+          <path d="M58 28 Q56 48 62 58 L90 58 Q96 48 94 28 Q82 18 74 18 Q64 18 58 28 Z" fill="#818cf8"/>
+          <path d="M58 28 Q68 22 76 22 Q86 22 94 28 L94 38 Q84 32 74 32 Q64 32 58 38 Z" fill="#6366f1"/>
+          <path d="M69 12 L69 20 L79 20 L79 12 Z" fill="#e8b285"/>
+          <circle cx="76" cy="8" r="10" fill="#f7cba0"/>
+          <path d="M66 7 Q68 -4 76 -2 Q86 -4 86 7 Q86 -1 76 -1 Q68 -1 66 7 Z" fill="#3a2a20"/>
+          <circle cx="71" cy="9" r="1.4" fill="#2a2019"/><circle cx="81" cy="9" r="1.4" fill="#2a2019"/>
+          <path d="M73 13 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path d="M60 34 L50 52 Q48 57 52 57 Q56 57 58 52 L66 36 Z" fill="#f7cba0"/>
+          <circle cx="51" cy="59" r="3.2" fill="#e8b285"/>
+          <path d="M92 34 L102 52 Q104 57 100 57 Q96 57 94 52 L86 36 Z" fill="#e8b285"/>
+          <circle cx="101" cy="59" r="3.2" fill="#d99a68"/>
           <path d="M116 70 q8 8 8 0" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"/>
         </svg>
         <div class="vl">Hip-flexor lunge</div>
@@ -482,48 +509,52 @@
 
     <div class="coregrid">
       <div class="core">
-        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Bird-dog: opposite arm and leg extending and returning, animated">
-          <line class="align-line" x1="30" y1="66" x2="150" y2="66" stroke="#dc2626" stroke-width="2"/>
-          <path d="M56 64 L88 64" stroke="#14b8a6" stroke-width="15" stroke-linecap="round" fill="none"/>
-          <circle cx="48" cy="56" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M41 54 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <circle cx="45" cy="57" r="1" fill="#334155"/><circle cx="51" cy="57" r="1" fill="#334155"/>
-          <path d="M46 61 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M58 64 L54 96" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
-          <circle cx="54" cy="98" r="3" fill="#f3c6a5"/>
-          <path d="M86 64 L88 96" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <ellipse cx="88" cy="99" rx="4" ry="3" fill="#475569"/>
+        <svg viewBox="0 0 180 120" role="img" aria-label="Bird-dog: opposite arm and leg extending and returning, animated">
+          <line class="align-line" x1="30" y1="70" x2="150" y2="70" stroke="#dc2626" stroke-width="2"/>
+          <ellipse cx="70" cy="104" rx="44" ry="5" fill="#0f172a" opacity=".08"/>
+          <path d="M54 56 L48 92 Q47 97 52 97 Q57 97 57 92 L62 58 Z" fill="#e8b285"/>
+          <circle cx="52" cy="99" r="4" fill="#f7cba0"/>
+          <path d="M84 62 L84 96 Q84 101 90 101 Q96 101 95 96 L94 62 Z" fill="#0d7a6e"/>
+          <ellipse cx="90" cy="102" rx="6" ry="4" fill="#3a3f4a"/>
+          <path d="M52 56 L88 60 Q96 62 94 68 L58 68 Q50 66 52 56 Z" fill="#1aa89b"/>
+          <path d="M52 56 L88 60 L88 64 L58 64 Q52 62 52 56 Z" fill="#0e7f74"/>
+          <circle cx="44" cy="48" r="9" fill="#f7cba0"/>
+          <path d="M35 47 Q37 37 44 39 Q53 37 53 47 Q53 40 44 39 Q37 40 35 47 Z" fill="#3a2a20"/>
+          <circle cx="40" cy="49" r="1.4" fill="#2a2019"/><circle cx="47" cy="49" r="1.4" fill="#2a2019"/>
+          <path d="M41 53 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
           <g>
             <animateTransform attributeName="transform" type="translate" values="0 0; 8 0; 0 0" dur="3s" repeatCount="indefinite"/>
-            <path d="M56 62 L34 62" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
-            <circle cx="32" cy="62" r="3" fill="#f3c6a5"/>
+            <path d="M54 58 L30 58 Q25 58 25 62 Q25 66 30 66 L56 64 Z" fill="#f7cba0"/>
+            <circle cx="27" cy="62" r="3.5" fill="#e8b285"/>
           </g>
           <g>
-            <animateTransform attributeName="transform" type="translate" values="0 0; -8 0; 0 0" dur="3s" repeatCount="indefinite"/>
-            <path d="M88 66 L116 68" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-            <ellipse cx="118" cy="68" rx="4" ry="3" fill="#475569"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0; -9 0; 0 0" dur="3s" repeatCount="indefinite"/>
+            <path d="M92 62 L118 62 Q124 62 124 67 Q124 72 118 72 L94 68 Z" fill="#0a5f55"/>
+            <ellipse cx="120" cy="67" rx="5" ry="4" fill="#2f343c"/>
           </g>
-          <text x="30" y="48" font-size="9" font-weight="700" fill="#b91c1c">flat back</text>
+          <text x="30" y="46" font-size="9" font-weight="700" fill="#b91c1c">flat back</text>
         </svg>
         <div class="cl">Bird-Dog</div>
         <div class="cr">3 × 10/side · keep the back flat</div>
         <span class="demo">▶ DEMO LOOP</span>
       </div>
       <div class="core">
-        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Glute bridge: hips lifting and lowering, animated">
+        <svg viewBox="0 0 180 120" role="img" aria-label="Glute bridge: hips lifting and lowering, animated">
           <line x1="20" y1="100" x2="160" y2="100" stroke="#e2e8f0" stroke-width="3"/>
-          <line class="align-line" x1="58" y1="100" x2="125" y2="85" stroke="#16a34a" stroke-width="2.5"/>
-          <circle cx="40" cy="92" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M33 90 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <circle cx="37" cy="93" r="1" fill="#334155"/><circle cx="43" cy="93" r="1" fill="#334155"/>
-          <path d="M38 97 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M125 85 L130 100" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <ellipse cx="131" cy="102" rx="4" ry="3" fill="#475569"/>
+          <ellipse cx="95" cy="102" rx="60" ry="4" fill="#0f172a" opacity=".08"/>
+          <path d="M88 76 L112 90 L116 100 L100 100 L98 80 Z" fill="#0d7a6e"/>
+          <ellipse cx="110" cy="102" rx="8" ry="4" fill="#3a3f4a"/>
           <g>
-            <animateTransform attributeName="transform" type="translate" values="0 0; 0 13; 0 0" dur="3s" repeatCount="indefinite"/>
-            <path d="M58 100 L95 70" stroke="#14b8a6" stroke-width="15" stroke-linecap="round" fill="none"/>
-            <path d="M95 70 L125 85" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 12; 0 0" dur="3s" repeatCount="indefinite"/>
+            <path d="M50 98 Q52 76 78 70 L98 78 Q100 90 96 100 L62 100 Q52 100 50 98 Z" fill="#1aa89b"/>
+            <path d="M50 98 Q54 92 62 90 L96 100 L96 94 Q70 84 52 92 Z" fill="#0e7f74"/>
+            <circle cx="40" cy="88" r="10" fill="#f7cba0"/>
+            <path d="M30 87 Q32 76 40 78 Q50 76 50 87 Q50 79 40 78 Q32 79 30 87 Z" fill="#3a2a20"/>
+            <circle cx="36" cy="89" r="1.5" fill="#2a2019"/><circle cx="44" cy="89" r="1.5" fill="#2a2019"/>
+            <path d="M37 94 q3 2 6 0" stroke="#2a2019" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+            <path d="M56 88 L46 100 Q45 104 49 104 Q53 104 54 100 L62 92 Z" fill="#f7cba0"/>
           </g>
+          <line class="align-line" x1="58" y1="100" x2="118" y2="82" stroke="#16a34a" stroke-width="2.5"/>
           <text x="118" y="58" font-size="9" font-weight="700" fill="#065f46">straight line</text>
         </svg>
         <div class="cl">Glute Bridge</div>
@@ -531,45 +562,52 @@
         <span class="demo">▶ DEMO LOOP</span>
       </div>
       <div class="core">
-        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Hip hinge: hips pushing back and returning, animated">
-          <path d="M86 52 L82 96 L74 108" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <path d="M86 52 L96 96 L102 108" stroke="#0f766e" stroke-width="11" stroke-linecap="round" fill="none"/>
-          <ellipse cx="72" cy="112" rx="5" ry="3.5" fill="#475569"/>
-          <ellipse cx="104" cy="112" rx="5" ry="3.5" fill="#475569"/>
-          <line class="align-line" x1="96" y1="52" x2="128" y2="52" stroke="#dc2626" stroke-width="2"/>
+        <svg viewBox="0 0 180 120" role="img" aria-label="Hip hinge: hips pushing back and returning, animated">
+          <ellipse cx="92" cy="112" rx="30" ry="4" fill="#0f172a" opacity=".08"/>
+          <path d="M84 56 L78 108 Q77 112 83 112 L89 112 Q95 112 94 108 L92 56 Z" fill="#0d7a6e"/>
+          <path d="M100 56 L106 108 Q107 112 101 112 L95 112 Q89 112 90 108 L92 56 Z" fill="#0a5f55"/>
+          <ellipse cx="83" cy="114" rx="8" ry="4" fill="#3a3f4a"/>
+          <ellipse cx="103" cy="114" rx="8" ry="4" fill="#2f343c"/>
+          <line class="align-line" x1="92" y1="56" x2="124" y2="56" stroke="#dc2626" stroke-width="2"/>
           <g>
-            <animateTransform attributeName="transform" type="rotate" values="0 86 52; 18 86 52; 0 86 52" dur="3s" repeatCount="indefinite"/>
-            <path d="M86 52 L112 34" stroke="#14b8a6" stroke-width="15" stroke-linecap="round" fill="none"/>
-            <circle cx="118" cy="28" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-            <path d="M111 26 a8 8 0 0 1 14 0 z" fill="#475569"/>
-            <circle cx="115" cy="29" r="1" fill="#334155"/><circle cx="121" cy="29" r="1" fill="#334155"/>
-            <path d="M116 33 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-            <path d="M106 40 L92 58" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
+            <animateTransform attributeName="transform" type="rotate" values="0 92 56; 20 92 56; 0 92 56" dur="3s" repeatCount="indefinite"/>
+            <path d="M74 56 Q72 30 82 22 Q94 28 98 56 Z" fill="#1aa89b"/>
+            <path d="M74 56 Q80 46 88 42 L98 56 L98 46 Q90 40 82 44 Z" fill="#0e7f74"/>
+            <path d="M82 18 L82 26 L94 26 L94 18 Z" fill="#e8b285"/>
+            <circle cx="88" cy="13" r="10" fill="#f7cba0"/>
+            <path d="M78 12 Q80 1 88 3 Q98 1 98 12 Q98 4 88 3 Q80 4 78 12 Z" fill="#3a2a20"/>
+            <circle cx="83" cy="14" r="1.4" fill="#2a2019"/><circle cx="93" cy="14" r="1.4" fill="#2a2019"/>
+            <path d="M85 18 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+            <path d="M76 30 L68 48 Q66 52 70 52 Q74 52 76 48 L82 32 Z" fill="#f7cba0"/>
+            <circle cx="69" cy="54" r="3.2" fill="#e8b285"/>
+            <path d="M100 30 L108 48 Q110 52 106 52 Q102 52 100 48 L94 32 Z" fill="#e8b285"/>
+            <circle cx="107" cy="54" r="3.2" fill="#d99a68"/>
           </g>
-          <polygon points="136,52 130,56 130,48" fill="#b91c1c"/>
+          <polygon points="132,52 126,56 126,48" fill="#b91c1c"/>
         </svg>
         <div class="cl">Hip Hinge</div>
         <div class="cr">3 × 10 · hips back, not down</div>
         <span class="demo">▶ DEMO LOOP</span>
       </div>
       <div class="core">
-        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Forearm plank: flat back hold with a subtle breathing pulse">
+        <svg viewBox="0 0 180 120" role="img" aria-label="Forearm plank: flat back hold with a subtle breathing pulse">
           <line x1="20" y1="100" x2="160" y2="100" stroke="#e2e8f0" stroke-width="3"/>
+          <ellipse cx="95" cy="102" rx="60" ry="4" fill="#0f172a" opacity=".08"/>
           <g>
             <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="4s" repeatCount="indefinite"/>
-            <path d="M50 100 L50 80" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-            <path d="M130 100 L130 80" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-            <ellipse cx="50" cy="102" rx="4" ry="3" fill="#475569"/>
-            <ellipse cx="130" cy="102" rx="4" ry="3" fill="#475569"/>
-            <path d="M50 80 L130 80" stroke="#14b8a6" stroke-width="15" stroke-linecap="round" fill="none"/>
-            <circle cx="138" cy="72" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-            <path d="M131 70 a8 8 0 0 1 14 0 z" fill="#475569"/>
-            <circle cx="135" cy="73" r="1" fill="#334155"/><circle cx="141" cy="73" r="1" fill="#334155"/>
-            <path d="M136 77 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-            <path d="M50 80 L44 64 L40 62" stroke="#f3c6a5" stroke-width="8" stroke-linecap="round" fill="none"/>
+            <path d="M120 82 L128 100 Q129 104 134 104 Q139 104 138 100 L132 82 Z" fill="#0d7a6e"/>
+            <ellipse cx="135" cy="105" rx="7" ry="4" fill="#3a3f4a"/>
+            <path d="M48 80 L128 80 Q134 82 134 88 Q132 94 126 96 L52 96 Q46 94 46 88 Q48 82 48 80 Z" fill="#1aa89b"/>
+            <path d="M48 80 L128 80 L128 88 Q88 84 48 88 Z" fill="#0e7f74"/>
+            <path d="M50 86 L40 100 Q38 104 42 105 Q47 106 49 100 L56 90 Z" fill="#f7cba0"/>
+            <circle cx="42" cy="106" r="3.5" fill="#e8b285"/>
+            <circle cx="138" cy="72" r="10" fill="#f7cba0"/>
+            <path d="M128 71 Q130 60 138 62 Q148 60 148 71 Q148 63 138 62 Q130 63 128 71 Z" fill="#3a2a20"/>
+            <circle cx="134" cy="73" r="1.5" fill="#2a2019"/><circle cx="142" cy="73" r="1.5" fill="#2a2019"/>
+            <path d="M135 77 q3 2 6 0" stroke="#2a2019" stroke-width="1.2" fill="none" stroke-linecap="round"/>
           </g>
-          <line class="align-line" x1="50" y1="80" x2="130" y2="80" stroke="#16a34a" stroke-width="2.5"/>
-          <text x="62" y="72" font-size="9" font-weight="700" fill="#065f46">flat back</text>
+          <line class="align-line" x1="48" y1="84" x2="132" y2="84" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="62" y="74" font-size="9" font-weight="700" fill="#065f46">flat back</text>
         </svg>
         <div class="cl">Forearm Plank</div>
         <div class="cr">3 × 20–45s · elbows under shoulders</div>
@@ -584,23 +622,33 @@
 
     <div class="trio">
       <div class="tcard">
-        <svg class="sketch" viewBox="0 0 200 140" role="img" aria-label="Keep the load close: green check for load held close, red x for extended arms">
-          <circle cx="58" cy="28" r="7" fill="#f3c6a5" stroke="#475569" stroke-width="1.3"/>
-          <path d="M52 26 a7 7 0 0 1 12 0 z" fill="#475569"/>
-          <path d="M58 36 L58 58" stroke="#14b8a6" stroke-width="13" stroke-linecap="round" fill="none"/>
-          <rect x="72" y="42" width="24" height="24" rx="4" fill="#5eead4" stroke="#0f766e" stroke-width="2"/>
-          <path d="M58 42 L72 48 M58 42 L72 56" stroke="#f3c6a5" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <path d="M58 58 L54 88 M58 58 L64 88" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <ellipse cx="52" cy="92" rx="4" ry="3" fill="#475569"/><ellipse cx="66" cy="92" rx="4" ry="3" fill="#475569"/>
-          <path d="M52 82 l5 5 10 -10" stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="140" cy="28" r="7" fill="#f3c6a5" stroke="#475569" stroke-width="1.3"/>
-          <path d="M134 26 a7 7 0 0 1 12 0 z" fill="#475569"/>
-          <path d="M140 36 L140 58" stroke="#fb923c" stroke-width="13" stroke-linecap="round" fill="none"/>
-          <rect x="156" y="42" width="22" height="22" rx="4" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
-          <path d="M140 42 L156 46 M140 42 L156 54" stroke="#f3c6a5" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <path d="M140 58 L136 88 M140 58 L146 88" stroke="#ea580c" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <ellipse cx="134" cy="92" rx="4" ry="3" fill="#475569"/><ellipse cx="148" cy="92" rx="4" ry="3" fill="#475569"/>
-          <path d="M142 82 l5 5 5 -5 M147 82 v10" stroke="#dc2626" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <svg viewBox="0 0 200 140" role="img" aria-label="Keep the load close: green check for load held close, red x for extended arms">
+          <ellipse cx="60" cy="120" rx="24" ry="4" fill="#0f172a" opacity=".08"/>
+          <ellipse cx="142" cy="120" rx="24" ry="4" fill="#0f172a" opacity=".08"/>
+          <path d="M54 58 L50 112 Q49 117 55 117 L61 117 Q67 117 66 112 L64 58 Z" fill="#0d7a6e"/>
+          <path d="M66 58 L70 112 Q71 117 65 117 L59 117 Q53 117 54 112 L56 58 Z" fill="#0a5f55"/>
+          <ellipse cx="56" cy="119" rx="7" ry="3.5" fill="#3a3f4a"/>
+          <ellipse cx="68" cy="119" rx="7" ry="3.5" fill="#2f343c"/>
+          <path d="M48 30 Q46 50 52 58 L68 58 Q74 50 72 30 Q62 22 58 22 Q52 22 48 30 Z" fill="#1aa89b"/>
+          <circle cx="60" cy="14" r="9" fill="#f7cba0"/>
+          <path d="M51 13 Q53 3 60 5 Q69 3 69 13 Q69 5 60 4 Q53 5 51 13 Z" fill="#3a2a20"/>
+          <circle cx="56" cy="15" r="1.3" fill="#2a2019"/><circle cx="64" cy="15" r="1.3" fill="#2a2019"/>
+          <path d="M57 19 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <rect x="64" y="38" width="18" height="18" rx="4" fill="#5eead4" stroke="#0f766e" stroke-width="1.5"/>
+          <path d="M50 36 Q52 40 62 42 Q54 46 50 46 Q47 44 47 40 Z" fill="#f7cba0"/>
+          <path d="M56 100 l4 4 8 -8" stroke="#16a34a" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M136 58 L132 112 Q131 117 137 117 L143 117 Q149 117 148 112 L146 58 Z" fill="#e07f28"/>
+          <path d="M148 58 L152 112 Q153 117 147 117 L141 117 Q135 117 136 112 L138 58 Z" fill="#c96a1e"/>
+          <ellipse cx="138" cy="119" rx="7" ry="3.5" fill="#3a3f4a"/>
+          <ellipse cx="150" cy="119" rx="7" ry="3.5" fill="#2f343c"/>
+          <path d="M130 30 Q128 50 134 58 L150 58 Q156 50 154 30 Q144 22 140 22 Q134 22 130 30 Z" fill="#f59e42"/>
+          <circle cx="142" cy="14" r="9" fill="#f7cba0"/>
+          <path d="M133 13 Q135 3 142 5 Q151 3 151 13 Q151 5 142 4 Q135 5 133 13 Z" fill="#3a2a20"/>
+          <circle cx="138" cy="15" r="1.3" fill="#2a2019"/><circle cx="146" cy="15" r="1.3" fill="#2a2019"/>
+          <path d="M139 19 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <rect x="158" y="40" width="18" height="18" rx="4" fill="#fca5a5" stroke="#b91c1c" stroke-width="1.5"/>
+          <path d="M150 40 Q154 44 158 46 Q154 50 150 48 Z" fill="#f7cba0"/>
+          <path d="M138 100 l4 4 4 -4 M142 104 l0 8" stroke="#dc2626" stroke-width="4" fill="none" stroke-linecap="round"/>
         </svg>
         <div class="tl">Keep the load close</div>
         <div class="tr">Close to your center of gravity, not at arm's length</div>
@@ -620,23 +668,28 @@
         <div class="tr">Move your whole body — never twist the spine under load</div>
       </div>
       <div class="tcard">
-        <svg class="sketch" viewBox="0 0 200 140" role="img" aria-label="Brace your core: side view with arrows showing inward abdominal tension">
-          <circle cx="100" cy="24" r="8" fill="#f3c6a5" stroke="#475569" stroke-width="1.5"/>
-          <path d="M93 22 a8 8 0 0 1 14 0 z" fill="#475569"/>
-          <circle cx="97" cy="25" r="1" fill="#334155"/><circle cx="103" cy="25" r="1" fill="#334155"/>
-          <path d="M98 29 q2 2 4 0" stroke="#334155" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-          <path d="M100 32 L100 80" stroke="#14b8a6" stroke-width="14" stroke-linecap="round" fill="none"/>
-          <path d="M100 80 L86 112" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <path d="M100 80 L114 112" stroke="#0f766e" stroke-width="10" stroke-linecap="round" fill="none"/>
-          <ellipse cx="84" cy="116" rx="4.5" ry="3" fill="#475569"/><ellipse cx="116" cy="116" rx="4.5" ry="3" fill="#475569"/>
-          <path d="M100 46 L84 58 L82 80" stroke="#f3c6a5" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <path d="M100 46 L116 58 L118 80" stroke="#f3c6a5" stroke-width="7" stroke-linecap="round" fill="none"/>
-          <circle cx="82" cy="82" r="2.8" fill="#f3c6a5"/><circle cx="118" cy="82" r="2.8" fill="#f3c6a5"/>
+        <svg viewBox="0 0 200 140" role="img" aria-label="Brace your core: side view with arrows showing inward abdominal tension">
+          <ellipse cx="100" cy="120" rx="28" ry="4" fill="#0f172a" opacity=".08"/>
+          <path d="M92 58 L88 112 Q87 117 93 117 L99 117 Q105 117 104 112 L102 58 Z" fill="#0d7a6e"/>
+          <path d="M108 58 L112 112 Q113 117 107 117 L101 117 Q95 117 96 112 L98 58 Z" fill="#0a5f55"/>
+          <ellipse cx="94" cy="119" rx="8" ry="4" fill="#3a3f4a"/>
+          <ellipse cx="110" cy="119" rx="8" ry="4" fill="#2f343c"/>
+          <path d="M84 30 Q82 50 88 58 L114 58 Q120 50 118 30 Q106 20 100 20 Q92 20 84 30 Z" fill="#1aa89b"/>
+          <path d="M84 30 Q94 24 102 24 L118 30 L118 40 Q104 36 90 40 Z" fill="#0e7f74"/>
+          <path d="M94 14 L94 22 L106 22 L106 14 Z" fill="#e8b285"/>
+          <circle cx="100" cy="9" r="10" fill="#f7cba0"/>
+          <path d="M90 8 Q92 -3 100 -1 Q110 -3 110 8 Q110 0 100 0 Q92 0 90 8 Z" fill="#3a2a20"/>
+          <circle cx="95" cy="10" r="1.4" fill="#2a2019"/><circle cx="105" cy="10" r="1.4" fill="#2a2019"/>
+          <path d="M97 14 q3 2 6 0" stroke="#2a2019" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+          <path d="M86 36 L78 54 Q76 58 80 58 Q84 58 86 54 L92 38 Z" fill="#f7cba0"/>
+          <circle cx="79" cy="60" r="3.2" fill="#e8b285"/>
+          <path d="M116 36 L124 54 Q126 58 122 58 Q118 58 116 54 L110 38 Z" fill="#e8b285"/>
+          <circle cx="123" cy="60" r="3.2" fill="#d99a68"/>
           <g stroke="#dc2626" stroke-width="2.5">
-            <line x1="78" y1="62" x2="94" y2="62"/><line x1="106" y1="62" x2="122" y2="62"/>
-            <polygon points="94,62 88,59 88,65" fill="#dc2626"/><polygon points="106,62 112,59 112,65" fill="#dc2626"/>
+            <line x1="78" y1="62" x2="92" y2="62"/><line x1="122" y1="62" x2="108" y2="62"/>
+            <polygon points="92,62 86,59 86,65" fill="#dc2626"/><polygon points="108,62 114,59 114,65" fill="#dc2626"/>
           </g>
-          <text x="82" y="96" font-size="9.5" font-weight="700" fill="#b91c1c">brace inward</text>
+          <text x="80" y="92" font-size="9.5" font-weight="700" fill="#b91c1c">brace inward</text>
         </svg>
         <div class="tl">Brace your core</div>
         <div class="tr">Tighten as if about to be poked, before you lift</div>
