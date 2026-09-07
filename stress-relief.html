@@ -54,6 +54,7 @@
   .fig svg{max-width:100%;height:auto;display:block;margin:0 auto}
   .fig .cap{font-size:.78rem;color:var(--muted);margin-top:8px;font-style:italic}
   svg text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  svg .sc{transform-box:fill-box;transform-origin:center}
 
   /* autonomic switchboard */
   .switch{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
@@ -93,7 +94,6 @@
   @keyframes breathe478{0%{transform:scale(.5)}21%{transform:scale(1)}57.9%{transform:scale(1)}100%{transform:scale(.5)}}
   .pacer .keys{font-size:.82rem;color:var(--muted);line-height:1.5}
   .pacer .keys b{color:var(--ink)}
-  .pacer .keys span{font-weight:700}
 
   /* emergency card */
   .helpline{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
@@ -104,6 +104,52 @@
   .hcard .meta{font-size:.74rem;opacity:.9}
   .hc-988{background:linear-gradient(135deg,#7c3aed,#4f46e5)}
   .hc-well{background:linear-gradient(135deg,#0f766e,#0ea5e9)}
+
+  /* ================= MOTION ================= */
+  @media (prefers-reduced-motion: reduce){
+    .orb,.badge,.hcard svg,.fig-sym,.fig-para,.sym-ecg,.para-exhale,
+    .box-lungs,.chev,.marker,.flowline{animation:none!important}
+    svg animateMotion,svg animateTransform{display:none}
+  }
+
+  /* autonomic figures */
+  .fig-sym{animation:tremble .45s linear infinite}
+  @keyframes tremble{0%,100%{transform:translate(0,0)}25%{transform:translate(1px,0)}75%{transform:translate(-1px,0)}}
+  .sym-torso{animation:throb .9s ease-in-out infinite}
+  @keyframes throb{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+  .para-torso{animation:paraBreathe 9s ease-in-out infinite}
+  @keyframes paraBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.055)}}
+  .para-exhale{stroke-dasharray:7 7;animation:flow-slow 3s linear infinite}
+  @keyframes flow-slow{to{stroke-dashoffset:-28}}
+
+  /* box breathing */
+  .box-lungs{animation:boxLungs 16s ease-in-out infinite}
+  @keyframes boxLungs{0%{transform:scale(.72)}25%{transform:scale(1.18)}50%{transform:scale(1.18)}75%{transform:scale(.72)}100%{transform:scale(.72)}}
+  .chev{animation:chev 16s ease-in-out infinite}
+  .chev.c2{animation-delay:4s}.chev.c3{animation-delay:8s}.chev.c4{animation-delay:12s}
+  @keyframes chev{0%,10%{opacity:1;stroke-width:4}18%,88%{opacity:.3;stroke-width:3}100%{opacity:1}}
+
+  /* sensory badges */
+  .badge{animation:floaty 5s ease-in-out infinite}
+  .badge:nth-child(2){animation-delay:.6s}.badge:nth-child(3){animation-delay:1.2s}
+  .badge:nth-child(4){animation-delay:1.8s}.badge:nth-child(5){animation-delay:2.4s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+  /* PMR markers */
+  .marker{animation:markpulse 8s ease-in-out infinite}
+  .marker.m2{animation-delay:2s}.marker.m3{animation-delay:4s}.marker.m4{animation-delay:6s}
+  @keyframes markpulse{0%,8%{transform:scale(1.3)}14%,100%{transform:scale(1)}}
+
+  /* scope shield */
+  .flowline{stroke-dasharray:5 5;animation:flow-in 2s linear infinite}
+  @keyframes flow-in{to{stroke-dashoffset:-20}}
+  .shield-pulse{animation:shieldPulse 5s ease-in-out infinite}
+  @keyframes shieldPulse{0%,100%{fill-opacity:.8}50%{fill-opacity:.55}}
+
+  /* helpline */
+  .hcard svg{transform-box:fill-box;transform-origin:center;animation:ring 3s ease-in-out infinite}
+  .hc-well svg{animation-delay:1.5s}
+  @keyframes ring{0%,100%{transform:scale(1)}50%{transform:scale(1.14)}}
 </style>
 </head>
 <body>
@@ -151,16 +197,19 @@
         <h4>⚡ Fight-or-Flight on shift</h4>
         <p class="sub">Sympathetic · your stress dial is up</p>
         <div class="fig">
-          <svg viewBox="0 0 100 150" role="img" aria-label="Person under stress">
+          <svg class="fig-sym" viewBox="0 0 100 150" role="img" aria-label="Person under stress, trembling with a racing pulse">
             <circle cx="50" cy="20" r="13" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
             <path d="M44 16 l5 -2 M56 16 l-5 -2" stroke="#b91c1c" stroke-width="2" stroke-linecap="round"/>
             <line x1="50" y1="33" x2="50" y2="39" stroke="#b91c1c" stroke-width="2"/>
-            <path d="M32 52 h36 a6 6 0 0 1 6 6 v30 a6 6 0 0 1 -6 6 h-36 a6 6 0 0 1 -6 -6 v-30 a6 6 0 0 1 6 -6 z" fill="#fecaca" stroke="#b91c1c" stroke-width="2"/>
+            <path class="sym-torso sc" d="M32 52 h36 a6 6 0 0 1 6 6 v30 a6 6 0 0 1 -6 6 h-36 a6 6 0 0 1 -6 -6 v-30 a6 6 0 0 1 6 -6 z" fill="#fecaca" stroke="#b91c1c" stroke-width="2"/>
             <path d="M32 56 q-15 -3 -17 15" fill="none" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
             <path d="M68 56 q15 -3 17 15" fill="none" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
             <line x1="40" y1="94" x2="40" y2="124" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
             <line x1="60" y1="94" x2="60" y2="124" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-            <path d="M50 64 l4 0 2 -6 3 10 2 -8 4 0" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M50 64 l4 0 2 -6 3 10 2 -8 4 0" fill="none" stroke="#dc2626" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".35"/>
+            <circle r="2.6" fill="#dc2626">
+              <animateMotion dur="1s" repeatCount="indefinite" path="M50 64 l4 0 2 -6 3 10 2 -8 4 0"/>
+            </circle>
           </svg>
         </div>
         <ul>
@@ -173,16 +222,16 @@
         <h4>🌿 Rest-and-digest</h4>
         <p class="sub">Parasympathetic · your calm dial</p>
         <div class="fig">
-          <svg viewBox="0 0 100 150" role="img" aria-label="Person at rest">
+          <svg class="fig-para" viewBox="0 0 100 150" role="img" aria-label="Person at rest, breathing slowly">
             <circle cx="50" cy="20" r="13" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
             <path d="M43 20 q3.5 3.5 7 0 M50 20 q3.5 3.5 7 0" stroke="#0f766e" stroke-width="2" fill="none" stroke-linecap="round"/>
             <line x1="50" y1="33" x2="50" y2="39" stroke="#0f766e" stroke-width="2"/>
-            <path d="M32 52 h36 a6 6 0 0 1 6 6 v30 a6 6 0 0 1 -6 6 h-36 a6 6 0 0 1 -6 -6 v-30 a6 6 0 0 1 6 -6 z" fill="#d1fae5" stroke="#0f766e" stroke-width="2"/>
+            <path class="para-torso sc" d="M32 52 h36 a6 6 0 0 1 6 6 v30 a6 6 0 0 1 -6 6 h-36 a6 6 0 0 1 -6 -6 v-30 a6 6 0 0 1 6 -6 z" fill="#d1fae5" stroke="#0f766e" stroke-width="2"/>
             <path d="M32 56 q-11 7 -8 21" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
             <path d="M68 56 q11 7 8 21" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
             <line x1="40" y1="94" x2="40" y2="124" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
             <line x1="60" y1="94" x2="60" y2="124" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
-            <path d="M52 70 q7 4 0 8 q-7 4 0 8" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
+            <path class="para-exhale" d="M52 70 q7 4 0 8 q-7 4 0 8" fill="none" stroke="#0ea5e9" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
         <ul>
@@ -202,10 +251,13 @@
     <h3>4-7-8 Breathing — the "calm down" reset</h3>
     <p class="reps">Best for: after a hard incident, a code, an abuse disclosure, or any moment your heart is pounding. 1–2 minutes.</p>
     <div class="fig">
-      <svg viewBox="0 0 360 140" role="img" aria-label="4-7-8 breathing waveform: inhale 4 seconds, hold 7, exhale 8">
+      <svg viewBox="0 0 360 140" role="img" aria-label="4-7-8 breathing waveform with a dot tracing the inhale, hold, and exhale">
         <line x1="20" y1="28" x2="340" y2="28" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4"/>
         <line x1="20" y1="115" x2="340" y2="115" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="4 4"/>
         <path d="M20 115 C 70 115, 92 28, 120 28 L 210 28 C 300 28, 322 115, 340 115" fill="none" stroke="#0f766e" stroke-width="5" stroke-linecap="round"/>
+        <circle r="7" fill="#f97316">
+          <animateMotion dur="19s" repeatCount="indefinite" path="M20 115 C 70 115, 92 28, 120 28 L 210 28 C 300 28, 322 115, 340 115"/>
+        </circle>
         <text x="70" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#0f766e">Inhale · 4s</text>
         <text x="165" y="16" text-anchor="middle" font-size="12" font-weight="700" fill="#0ea5e9">Hold · 7s</text>
         <text x="278" y="130" text-anchor="middle" font-size="12" font-weight="700" fill="#f97316">Whoosh exhale · 8s</text>
@@ -231,32 +283,35 @@
     <h3>Box Breathing — the "steady focus" reset</h3>
     <p class="reps">Best for: before a shift, before a difficult conversation, or to stay sharp mid-task. Equal 4-counts.</p>
     <div class="fig">
-      <svg viewBox="0 0 340 250" role="img" aria-label="Box breathing: inhale 4 seconds, hold 4, exhale 4, hold 4, in a loop">
+      <svg viewBox="0 0 340 250" role="img" aria-label="Box breathing loop with a dot travelling around the square and lungs breathing in rhythm">
         <rect x="80" y="45" width="180" height="160" rx="30" fill="#f0fdfa" stroke="#0f766e" stroke-width="4"/>
-        <!-- clockwise chevrons -->
-        <path d="M160 34 l9 5 -9 5" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M304 110 l-5 9 5 9" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M180 216 l-9 5 9 5" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M36 140 l5 -9 -5 -9" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-        <!-- lungs icon -->
-        <g fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round">
+        <path class="chev c1" d="M160 34 l9 5 -9 5" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="chev c2" d="M304 110 l-5 9 5 9" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="chev c3" d="M180 216 l-9 5 9 5" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <path class="chev c4" d="M36 140 l5 -9 -5 -9" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <g class="box-lungs sc" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round">
           <path d="M170 104 c-12 0 -20 10 -20 22 c0 8 4 12 8 12 c5 0 8 -4 12 -12 c4 8 7 12 12 12 c4 0 8 -4 8 -12 c0 -12 -8 -22 -20 -22 z"/>
           <path d="M170 104 v8"/>
         </g>
+        <circle r="7" fill="#0f766e">
+          <animateMotion dur="16s" repeatCount="indefinite" path="M110 45 H 230 Q 260 45 260 75 V 175 Q 260 205 230 205 H 110 Q 80 205 80 175 V 75 Q 80 45 110 45 Z"/>
+        </circle>
         <text x="170" y="30" text-anchor="middle" font-size="13" font-weight="800" fill="#0f766e">INHALE · 4s</text>
         <text x="170" y="238" text-anchor="middle" font-size="13" font-weight="800" fill="#0f766e">EXHALE · 4s</text>
         <text x="22" y="130" text-anchor="middle" font-size="13" font-weight="800" fill="#0f766e" transform="rotate(-90 22 130)">HOLD · 4s</text>
         <text x="318" y="130" text-anchor="middle" font-size="13" font-weight="800" fill="#0f766e" transform="rotate(90 318 130)">HOLD · 4s</text>
       </svg>
-      <p class="cap">Use it as a "breathing metronome" to anchor your attention when your mind races.</p>
+      <p class="cap">The dot travels the loop, and the lungs breathe in time. Follow it as a "breathing metronome" when your mind races.</p>
     </div>
 
     <h3>Physiological Sigh — the "10-second" reset</h3>
     <p class="reps">Best for: a fast, discreet reset between tasks when you can't step away.</p>
     <div class="fig">
-      <svg viewBox="0 0 320 130" role="img" aria-label="Physiological sigh: two short inhales then one long exhale">
-        <path d="M20 110 L70 110 L70 62 L110 62 L110 30 L140 30" fill="none" stroke="#0ea5e9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M140 30 C 240 30, 290 62, 300 110" fill="none" stroke="#f97316" stroke-width="5" stroke-linecap="round"/>
+      <svg viewBox="0 0 320 130" role="img" aria-label="Physiological sigh: two short inhales then one long exhale, traced by a moving dot">
+        <path d="M20 110 L70 110 L70 62 L110 62 L110 30 L140 30 C 240 30, 290 62, 300 110" fill="none" stroke="#0ea5e9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle r="7" fill="#f97316">
+          <animateMotion dur="5s" repeatCount="indefinite" path="M20 110 L70 110 L70 62 L110 62 L110 30 L140 30 C 240 30, 290 62, 300 110"/>
+        </circle>
         <text x="95" y="126" text-anchor="middle" font-size="12" font-weight="700" fill="#0ea5e9">Inhale #1 + top sip</text>
         <text x="222" y="122" text-anchor="middle" font-size="12" font-weight="700" fill="#f97316">Long exhale</text>
       </svg>
@@ -319,7 +374,7 @@
     <p class="reps">Best for: post-shift unwinding, or physical tension you've been carrying all day (shoulders, jaw, back). 5–10 minutes.</p>
 
     <div class="fig">
-      <svg viewBox="0 0 140 260" role="img" aria-label="Body map showing four tension zones to squeeze then release">
+      <svg viewBox="0 0 140 260" role="img" aria-label="Body map with four tension zones that pulse in sequence to guide the squeeze-release order">
         <circle cx="70" cy="30" r="20" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
         <path d="M70 12 q3 2.5 6 0 M70 12 q-3 2.5 -6 0" stroke="#b91c1c" stroke-width="2" fill="none" stroke-linecap="round"/>
         <path d="M44 66 h52 a8 8 0 0 1 8 8 v52 a8 8 0 0 1 -8 8 h-52 a8 8 0 0 1 -8 -8 v-52 a8 8 0 0 1 8 -8 z" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
@@ -328,13 +383,13 @@
         <line x1="56" y1="134" x2="56" y2="184" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
         <line x1="84" y1="134" x2="84" y2="184" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
         <g font-size="13" font-weight="800" fill="#fff" text-anchor="middle">
-          <circle cx="70" cy="30" r="11" fill="#dc2626"/><text x="70" y="34">1</text>
-          <circle cx="30" cy="76" r="11" fill="#dc2626"/><text x="30" y="80">2</text>
-          <circle cx="120" cy="98" r="11" fill="#dc2626"/><text x="120" y="102">3</text>
-          <circle cx="84" cy="184" r="11" fill="#dc2626"/><text x="84" y="188">4</text>
+          <g class="marker m1 sc"><circle cx="70" cy="30" r="11" fill="#dc2626"/><text x="70" y="34">1</text></g>
+          <g class="marker m2 sc"><circle cx="30" cy="76" r="11" fill="#dc2626"/><text x="30" y="80">2</text></g>
+          <g class="marker m3 sc"><circle cx="120" cy="98" r="11" fill="#dc2626"/><text x="120" y="102">3</text></g>
+          <g class="marker m4 sc"><circle cx="84" cy="184" r="11" fill="#dc2626"/><text x="84" y="188">4</text></g>
         </g>
       </svg>
-      <p class="cap">Tense each zone for 5s, then release for 10s and notice the difference.</p>
+      <p class="cap">The markers light up in order — tense each zone for 5s, then release for 10s and notice the difference.</p>
     </div>
 
     <ul>
@@ -374,28 +429,25 @@
     <!-- Scope shield -->
     <div class="fig">
       <svg viewBox="0 0 360 300" role="img" aria-label="The scope shield: PSW in the center protected by protocols, with clinical burden flowing up to the nurse">
-        <!-- RN/RPN node -->
         <rect x="120" y="10" width="120" height="30" rx="15" fill="#0f766e"/>
         <text x="180" y="30" text-anchor="middle" font-size="14" font-weight="800" fill="#fff">RN / RPN</text>
-        <!-- upward arrow -->
-        <line x1="180" y1="100" x2="180" y2="46" stroke="#7c3aed" stroke-width="4"/>
-        <polygon points="180,40 174,52 186,52" fill="#7c3aed"/>
+        <g>
+          <animateTransform attributeName="transform" type="translate" values="0 0;0 -6;0 0" dur="2.4s" repeatCount="indefinite"/>
+          <line x1="180" y1="100" x2="180" y2="46" stroke="#7c3aed" stroke-width="4"/>
+          <polygon points="180,40 174,52 186,52" fill="#7c3aed"/>
+        </g>
         <text x="196" y="76" font-size="11" font-weight="700" fill="#7c3aed">burden flows up</text>
-        <!-- shield -->
-        <path d="M180 70 L250 100 V170 Q250 230 180 262 Q110 230 110 170 V100 Z" fill="#f5f3ff" fill-opacity=".8" stroke="#7c3aed" stroke-width="3"/>
-        <!-- center person -->
+        <path class="shield-pulse" d="M180 70 L250 100 V170 Q250 230 180 262 Q110 230 110 170 V100 Z" fill="#f5f3ff" fill-opacity=".8" stroke="#7c3aed" stroke-width="3"/>
         <circle cx="180" cy="168" r="30" fill="#ede9fe" stroke="#7c3aed" stroke-width="2"/>
         <circle cx="180" cy="158" r="8" fill="#7c3aed"/>
         <path d="M166 190 a14 14 0 0 1 28 0 z" fill="#7c3aed"/>
-        <!-- protocol chips -->
         <g font-size="11.5" font-weight="700" fill="#5b21b6">
           <rect x="20" y="112" width="88" height="26" rx="13" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/><text x="64" y="129" text-anchor="middle">4-Step Loop</text>
           <rect x="252" y="112" width="96" height="26" rx="13" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/><text x="300" y="129" text-anchor="middle">DARP Charting</text>
           <rect x="20" y="215" width="106" height="26" rx="13" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/><text x="73" y="232" text-anchor="middle">Scope Boundaries</text>
           <rect x="240" y="215" width="104" height="26" rx="13" fill="#ede9fe" stroke="#7c3aed" stroke-width="1.5"/><text x="292" y="232" text-anchor="middle">Escalation</text>
         </g>
-        <!-- connecting lines -->
-        <g stroke="#c4b5fd" stroke-width="1.5" stroke-dasharray="4 4">
+        <g class="flowline" stroke="#c4b5fd" stroke-width="1.5">
           <line x1="108" y1="125" x2="150" y2="150"/>
           <line x1="252" y1="125" x2="210" y2="150"/>
           <line x1="126" y1="215" x2="155" y2="188"/>
@@ -430,7 +482,6 @@
       <li>Thoughts of self-harm</li>
     </ul>
 
-    <!-- emergency resource cards -->
     <div class="helpline">
       <div class="hcard hc-988">
         <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 12 h14 a8 8 0 0 1 8 8 v24 a8 8 0 0 1 -8 8 h-14 a8 8 0 0 1 -8 -8 v-24 a8 8 0 0 1 8 -8 z" fill="none" stroke="#fff" stroke-width="3.5" stroke-linejoin="round"/><line x1="28" y1="46" x2="40" y2="46" stroke="#fff" stroke-width="3.5" stroke-linecap="round"/></svg>
