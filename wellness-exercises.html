@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Stay Alert & Healthy — PSW Exercise Guide</title>
+<title>Stay Alert &amp; Healthy — PSW Exercise Guide</title>
 <style>
   :root{
     --bg:#f4f7f9; --card:#ffffff; --ink:#1f2d3d; --muted:#64748b;
@@ -42,6 +42,103 @@
   .reps{color:var(--muted);font-size:.84rem}
   footer{text-align:center;color:var(--muted);font-size:.78rem;padding:16px 0 30px}
   footer a{color:var(--brand)}
+
+  /* ============ ILLUSTRATIONS ============ */
+  .fig{margin:14px 0;text-align:center}
+  .fig svg{max-width:100%;height:auto;display:block;margin:0 auto}
+  .fig .cap{font-size:.78rem;color:var(--muted);margin-top:8px;font-style:italic}
+  svg text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+  svg .sc{transform-box:fill-box;transform-origin:center}
+
+  .duo{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+  .panel{flex:1 1 240px;border-radius:14px;padding:14px;border:1.5px solid;text-align:center}
+  .panel h4{margin:0 0 2px;font-size:.92rem}
+  .panel .sub{font-size:.74rem;opacity:.85;margin:0 0 6px}
+  .panel ul{margin:8px 0 0;padding-left:18px;text-align:left}
+  .panel li{font-size:.8rem;margin:4px 0}
+  .panel.bad{background:#fff7ed;border-color:#fed7aa}
+  .panel.bad h4{color:#b91c1c}
+  .panel.good{background:#f0fdfa;border-color:#99f6e4}
+  .panel.good h4{color:#0f766e}
+
+  /* icon pills */
+  .ribbon{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;justify-content:center}
+  .pill{flex:0 1 96px;text-align:center}
+  .pill .ring{width:72px;height:72px;margin:0 auto;border-radius:50%;background:#ecfdf5;border:2px solid #a7f3d0;
+              display:flex;align-items:center;justify-content:center;position:relative}
+  .pill .ring svg{width:40px;height:40px;display:block}
+  .pill .num{position:absolute;top:-3px;right:-3px;width:22px;height:22px;border-radius:50%;background:#16a34a;color:#fff;
+             font-weight:800;font-size:.74rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
+  .pill .lbl{font-size:.74rem;font-weight:700;color:#334155;margin-top:6px}
+
+  /* vignette cards */
+  .vig{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+  .vcard{flex:1 1 200px;border-radius:12px;padding:12px;border:1px solid var(--border);background:#f8fafc;text-align:center}
+  .vcard svg{width:100%;max-width:160px;height:auto;margin:0 auto;display:block}
+  .vcard .vl{font-size:.78rem;font-weight:700;color:#334155;margin-top:6px}
+  .vcard .vr{font-size:.72rem;color:var(--muted)}
+
+  /* core four */
+  .coregrid{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+  .core{flex:1 1 210px;border-radius:12px;padding:14px;border:1px solid var(--border);text-align:center;background:#fafafa}
+  .core svg{width:100%;max-width:180px;height:auto;margin:0 auto;display:block}
+  .core .cl{font-size:.8rem;font-weight:700;color:#334155;margin-top:8px}
+  .core .cr{font-size:.73rem;color:var(--muted)}
+
+  /* safe-lift trio */
+  .trio{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
+  .tcard{flex:1 1 210px;border-radius:12px;padding:12px;border:1px solid var(--border);text-align:center;background:#fff}
+  .tcard svg{width:100%;max-width:190px;height:auto;margin:0 auto;display:block}
+  .tcard .tl{font-size:.8rem;font-weight:700;color:#334155;margin-top:6px}
+  .tcard .tr{font-size:.72rem;color:var(--muted)}
+
+  /* interactive checklist */
+  .check{list-style:none;padding:0;margin:10px 0}
+  .check li{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--border);
+            border-radius:10px;margin:6px 0;cursor:pointer;background:#f8fafc;transition:.15s;font-size:.88rem}
+  .check li:hover{border-color:#94a3b8}
+  .check li.on{background:#ecfdf5;border-color:#6ee7b7}
+  .check li .box{flex:0 0 auto;width:22px;height:22px;border-radius:6px;border:2px solid #94a3b8;display:flex;
+                 align-items:center;justify-content:center;font-size:.85rem;color:#fff;transition:.15s}
+  .check li.on .box{background:#16a34a;border-color:#16a34a}
+
+  /* openGym mockup */
+  .mock{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin:16px 0}
+  .phone{width:158px;border-radius:24px;border:6px solid #1f2d3d;background:#fff;padding:12px;
+         box-shadow:0 8px 24px rgba(15,23,42,.18);flex:0 0 auto}
+  .phone .app{font-size:.7rem;font-weight:800;color:#0f766e;text-align:center;margin-bottom:6px}
+  .phone .heat{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;margin:6px 0}
+  .phone .heat i{aspect-ratio:1;border-radius:3px;background:#e2e8f0}
+  .phone .heat i.l1{background:#99f6e4}.phone .heat i.l2{background:#5eead4}.phone .heat i.l3{background:#0f766e}
+  .phone .timer{display:flex;align-items:center;gap:8px;margin:8px 0}
+  .phone .timer .ring2{width:44px;height:44px;flex:0 0 auto}
+  .phone .timer .tt{font-size:.9rem;font-weight:800;color:#1f2d3d}
+  .phone .timer .tl{font-size:.66rem;color:var(--muted)}
+  .phone .priv{display:flex;align-items:center;gap:6px;background:#ecfdf5;border:1px solid #a7f3d0;border-radius:8px;
+               padding:6px 8px;font-size:.64rem;color:#065f46;font-weight:700}
+
+  /* ============ MOTION ============ */
+  @media (prefers-reduced-motion: reduce){
+    .pill,.vcard svg,.spine-bad,.spine-good,.checkmark,.drop,.align-line,.ring-progress{animation:none!important}
+  }
+  .spine-bad{animation:warnPulse 1.8s ease-in-out infinite}
+  @keyframes warnPulse{0%,100%{opacity:.6}50%{opacity:1}}
+  .spine-good{animation:goodGlow 3s ease-in-out infinite}
+  @keyframes goodGlow{0%,100%{stroke:#16a34a}50%{stroke:#4ade80}}
+  .pill{animation:floaty 5s ease-in-out infinite}
+  .pill:nth-child(2){animation-delay:.5s}.pill:nth-child(3){animation-delay:1s}
+  .pill:nth-child(4){animation-delay:1.5s}.pill:nth-child(5){animation-delay:2s}
+  @keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+  .drop{animation:drop 1.5s ease-in infinite}
+  .drop.d2{animation-delay:.4s}.drop.d3{animation-delay:.8s}
+  @keyframes drop{0%{transform:translateY(-7px);opacity:0}30%{opacity:1}100%{transform:translateY(9px);opacity:0}}
+  .align-line{stroke-dasharray:6 6;animation:dashflow 2s linear infinite}
+  @keyframes dashflow{to{stroke-dashoffset:-24}}
+  .ring-progress{animation:ringdrain 45s linear infinite}
+  @keyframes ringdrain{from{stroke-dashoffset:0}to{stroke-dashoffset:126}}
+  .checkmark{transform-box:fill-box;transform-origin:center}
+  .check li.on .checkmark{animation:pop .25s ease}
+  @keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
 </style>
 </head>
 <body>
@@ -72,6 +169,58 @@
       <li><b>Alertness</b> — early starts, rotating shifts, and nights disrupt energy and sleep. Short, deliberate movement resets your focus better than another coffee.</li>
     </ul>
     <p>Every routine below is <b>body-weight only</b> — no equipment, no gym, doable in a break room or at home.</p>
+
+    <!-- Spine as crane vs lever -->
+    <div class="duo">
+      <div class="panel bad">
+        <h4>🚧 Bending at the waist</h4>
+        <p class="sub">Spine as a <b>lever</b> — load amplifies at L4–L5</p>
+        <svg viewBox="0 0 170 200" role="img" aria-label="Person bending at the waist with a rounded back, red spine warning">
+          <circle cx="122" cy="32" r="11" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path class="spine-bad" d="M60 108 C 90 74, 108 56, 120 46" fill="none" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
+          <path d="M60 108 L58 152 L54 190" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M60 108 L76 152 L82 190" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M120 46 L140 74 L142 100" stroke="#b91c1c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g transform="translate(66,104)">
+            <path d="M0 -13 L11 6 L-11 6 Z" fill="#f59e0b"/>
+            <text x="0" y="3" text-anchor="middle" font-size="12" font-weight="800" fill="#7c2d12">!</text>
+          </g>
+          <line x1="96" y1="90" x2="122" y2="64" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="3 3"/>
+          <polygon points="122,64 117,74 127,74" fill="#dc2626"/>
+          <text x="108" y="88" font-size="10" font-weight="700" fill="#b91c1c">shear</text>
+        </svg>
+        <ul>
+          <li>Load concentrated on the lumbar discs</li>
+          <li>Hamstrings + back do all the work</li>
+          <li>Higher risk of disc strain</li>
+        </ul>
+      </div>
+      <div class="panel good">
+        <h4>✅ Squatting, neutral spine</h4>
+        <p class="sub">Spine as a <b>crane</b> — load spreads to glutes &amp; quads</p>
+        <svg viewBox="0 0 170 200" role="img" aria-label="Person squatting with a neutral straight spine, load distributed to legs">
+          <circle cx="70" cy="28" r="11" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+          <path class="spine-good" d="M70 118 L70 56" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
+          <path d="M70 118 L48 146" stroke="#0f766e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M70 118 L92 146" stroke="#0f766e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M48 146 L44 190" stroke="#0f766e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M92 146 L96 190" stroke="#0f766e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M70 62 L104 82" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M70 68 L104 90" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g fill="#16a34a">
+            <polygon points="58,132 54,142 62,142"/><polygon points="82,132 78,142 86,142"/>
+            <polygon points="52,150 48,160 56,160"/><polygon points="88,150 84,160 92,160"/>
+          </g>
+          <text x="40" y="172" font-size="9.5" font-weight="700" fill="#065f46">glutes + quads</text>
+        </svg>
+        <ul>
+          <li>Load distributed across the big leg muscles</li>
+          <li>Core braced, spine stays neutral</li>
+          <li>Your strongest, safest lifting position</li>
+        </ul>
+      </div>
+    </div>
+    <p class="cap" style="font-size:.78rem;color:var(--muted)">Same weight, two very different loads on your back. Always choose the crane.</p>
   </div>
 
   <div class="card">
@@ -95,6 +244,44 @@
       <li><span class="ex">Ankle rolls + calf raises</span> <span class="reps">— 10–15 each</span></li>
       <li><span class="ex">Gentle body-weight squats</span> <span class="reps">— 5–10, slow, knees over toes</span></li>
     </ul>
+
+    <div class="ribbon">
+      <div class="pill">
+        <div class="ring">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 54 V30 M22 30 l10 2 6 -9" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 40 L36 54" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <span class="num">1</span>
+        </div>
+        <div class="lbl">March</div>
+      </div>
+      <div class="pill">
+        <div class="ring">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="none" stroke="#0f766e" stroke-width="3"/><path d="M48 26 a20 20 0 0 1 0 14" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/><polygon points="48,42 44,38 52,36" fill="#0f766e"/></svg>
+          <span class="num">2</span>
+        </div>
+        <div class="lbl">Circles</div>
+      </div>
+      <div class="pill">
+        <div class="ring">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12 v10" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 22 q0 22 -16 24" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><polygon points="16,48 21,44 14,42" fill="#0f766e"/><circle cx="32" cy="10" r="3" fill="#0f766e"/></svg>
+          <span class="num">3</span>
+        </div>
+        <div class="lbl">Spine roll</div>
+      </div>
+      <div class="pill">
+        <div class="ring">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 46 h24 a6 6 0 0 0 6 -6 l4 -22" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 12 l6 4 -6 4" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="num">4</span>
+        </div>
+        <div class="lbl">Calf raise</div>
+      </div>
+      <div class="pill">
+        <div class="ring">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 16 v14" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 30 q-12 6 -12 16 l0 4" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 30 q12 6 12 16 l0 4" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M20 50 l0 6 M44 50 l0 6" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <span class="num">5</span>
+        </div>
+        <div class="lbl">Squat</div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
@@ -108,6 +295,49 @@
       <li><span class="ex">Neck + shoulder release</span> <span class="reps">— slow rolls, 30s</span></li>
       <li><span class="ex">Splash cold water on your face / wrists</span> <span class="reps">— instant reset</span></li>
     </ul>
+
+    <div class="vig">
+      <div class="vcard">
+        <svg viewBox="0 0 160 130" role="img" aria-label="Wall sit: back flat against a wall, knees and hips at 90 degrees">
+          <rect x="18" y="6" width="10" height="118" rx="4" fill="#e2e8f0"/>
+          <path d="M40 40 L76 40 L80 78 L40 118 Z" fill="#d1fae5" stroke="#0f766e" stroke-width="2.5" stroke-linejoin="round"/>
+          <line x1="52" y1="118" x2="52" y2="100" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
+          <path d="M40 40 L52 24" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="53" cy="21" r="6" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+          <path d="M132 52 h20" stroke="#0ea5e9" stroke-width="2" stroke-dasharray="4 4"/>
+          <text x="132" y="76" font-size="11" font-weight="800" fill="#0f766e">90°</text>
+        </svg>
+        <div class="vl">Wall sit</div>
+        <div class="vr">30–60s · knees &amp; hips at 90°</div>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 160 130" role="img" aria-label="Standing hip extension: hands on lower back, gentle backward lean">
+          <circle cx="80" cy="20" r="7" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+          <path d="M80 27 L80 58" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M80 58 L66 110" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M80 58 L94 110" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M80 42 L66 54 L64 74" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M80 42 L94 54 L96 74" stroke="#0f766e" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M72 44 h16" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"/>
+          <path d="M120 96 q6 -10 10 -10" fill="none" stroke="#0ea5e9" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="vl">Hip extension</div>
+        <div class="vr">Gentle backward lean · reverse forward-bending</div>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 160 130" role="img" aria-label="Cold water splash: hands under a running tap with droplets">
+          <path d="M66 12 h28" stroke="#0ea5e9" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M66 12 v16 h28 v-16" fill="none" stroke="#0ea5e9" stroke-width="2.5"/>
+          <path class="drop" d="M80 36 l3 7 a3 3 0 0 1 -6 0 z" fill="#0ea5e9"/>
+          <path class="drop d2" d="M74 40 l3 7 a3 3 0 0 1 -6 0 z" fill="#0ea5e9"/>
+          <path class="drop d3" d="M86 42 l3 7 a3 3 0 0 1 -6 0 z" fill="#0ea5e9"/>
+          <path d="M56 96 q6 -26 14 -30 q8 4 14 30 q-6 10 -14 10 q-8 0 -14 -10 z" fill="#d1fae5" stroke="#0f766e" stroke-width="2.5"/>
+          <path d="M104 96 q6 -26 14 -30 q8 4 14 30 q-6 10 -14 10 q-8 0 -14 -10 z" fill="#d1fae5" stroke="#0f766e" stroke-width="2.5"/>
+        </svg>
+        <div class="vl">Cold water splash</div>
+        <div class="vr">Face &amp; wrists · instant reset</div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
@@ -120,6 +350,49 @@
       <li><span class="ex">Foam rolling</span> <span class="reps">— back, glutes, quads if you have a roller</span></li>
       <li><span class="ex">Slow breathing / wind-down</span> <span class="reps">— 5 slow breaths, let the nervous system downshift</span></li>
     </ul>
+
+    <div class="vig">
+      <div class="vcard">
+        <svg viewBox="0 0 160 130" role="img" aria-label="Child's pose: hips on heels, arms extended forward">
+          <path d="M80 84 q0 20 20 20 q14 0 14 8" fill="none" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M80 84 q0 20 -20 20 q-14 0 -14 8" fill="none" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="58" cy="62" r="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+          <path d="M58 70 l20 14" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M78 78 l34 -4" stroke="#6366f1" stroke-width="3" stroke-linecap="round"/>
+          <line x1="30" y1="20" x2="30" y2="112" stroke="#e2e8f0" stroke-width="3"/>
+          <text x="30" y="14" text-anchor="middle" font-size="10" font-weight="700" fill="#6366f1">mat</text>
+        </svg>
+        <div class="vl">Child's pose</div>
+        <div class="vr">30–60s · lengthen the low back</div>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 160 130" role="img" aria-label="Kneeling hip-flexor lunge: upright torso, pelvis tucked">
+          <path d="M70 30 L70 66" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="70" cy="22" r="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+          <path d="M70 66 L44 96 L40 118" stroke="#6366f1" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M70 66 L96 92 L98 118" stroke="#6366f1" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M70 38 L56 48 L54 66" stroke="#6366f1" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M70 38 L84 46 L86 62" stroke="#6366f1" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M116 70 q8 8 8 0" fill="none" stroke="#818cf8" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+        <div class="vl">Hip-flexor lunge</div>
+        <div class="vr">30s per side · pelvis tucked</div>
+      </div>
+      <div class="vcard">
+        <svg viewBox="0 0 160 130" role="img" aria-label="Foam roller zone map: safe zones on glutes, upper back, quads; avoid the lower back">
+          <circle cx="80" cy="24" r="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
+          <path d="M72 40 h16 a6 6 0 0 1 6 6 v34 a6 6 0 0 1 -6 6 h-16 a6 6 0 0 1 -6 -6 v-34 a6 6 0 0 1 6 -6 z" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+          <ellipse cx="80" cy="56" rx="13" ry="7" fill="#4ade80" opacity=".8"/>
+          <ellipse cx="80" cy="76" rx="13" ry="7" fill="#f87171" opacity=".8"/>
+          <ellipse cx="66" cy="102" rx="9" ry="7" fill="#4ade80" opacity=".8"/>
+          <ellipse cx="94" cy="102" rx="9" ry="7" fill="#4ade80" opacity=".8"/>
+          <line x1="118" y1="50" x2="130" y2="50" stroke="#4ade80" stroke-width="3" stroke-linecap="round"/><text x="132" y="53" font-size="10" font-weight="700" fill="#166534">ok</text>
+          <line x1="118" y1="76" x2="130" y2="76" stroke="#f87171" stroke-width="3" stroke-linecap="round"/><text x="132" y="79" font-size="10" font-weight="700" fill="#b91c1c">avoid</text>
+        </svg>
+        <div class="vl">Foam rolling map</div>
+        <div class="vr">Glutes, upper back, quads · skip the lumbar</div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
@@ -135,18 +408,136 @@
       <li><span class="ex">Calf raises</span> <span class="reps">— 3 × 15</span></li>
       <li><span class="ex">Hip hinge (unweighted)</span> <span class="reps">— 3 × 10; teaches the "squat, don't bend" pattern you use to lift</span></li>
     </ul>
+
+    <!-- Core Four -->
+    <div class="coregrid">
+      <div class="core">
+        <svg viewBox="0 0 180 120" role="img" aria-label="Bird-dog: on hands and knees, opposite arm and leg extended with a flat back">
+          <circle cx="52" cy="26" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M52 32 L62 48" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M62 48 L36 64" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M62 48 L88 66" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M62 48 L76 32" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <line x1="62" y1="48" x2="62" y2="88" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <line x1="36" y1="64" x2="26" y2="70" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <line x1="88" y1="66" x2="98" y2="72" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <line class="align-line" x1="34" y1="52" x2="150" y2="52" stroke="#dc2626" stroke-width="2"/>
+          <text x="150" y="46" font-size="9" font-weight="700" fill="#b91c1c">flat</text>
+        </svg>
+        <div class="cl">Bird-Dog</div>
+        <div class="cr">3 × 10/side · keep the back flat</div>
+      </div>
+      <div class="core">
+        <svg viewBox="0 0 180 120" role="img" aria-label="Glute bridge: lying supine driving hips up, knees to shoulders in a straight line">
+          <line x1="20" y1="90" x2="160" y2="90" stroke="#e2e8f0" stroke-width="3"/>
+          <path d="M60 90 L52 52" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M104 90 L112 52" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M52 52 L112 52" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="52" cy="44" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <line class="align-line" x1="52" y1="52" x2="112" y2="52" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="118" y="64" font-size="9" font-weight="700" fill="#065f46">straight line</text>
+        </svg>
+        <div class="cl">Glute Bridge</div>
+        <div class="cr">3 × 12 · drive through heels</div>
+      </div>
+      <div class="core">
+        <svg viewBox="0 0 180 120" role="img" aria-label="Hip hinge: hips pushed straight back, flat back, soft knees">
+          <circle cx="118" cy="28" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M118 34 L86 52 L84 96" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M118 34 L84 60" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M86 52 L96 96" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <line class="align-line" x1="96" y1="52" x2="128" y2="52" stroke="#dc2626" stroke-width="2"/>
+          <path d="M84 96 L76 106" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M96 96 L102 106" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="136,52 130,56 130,48" fill="#b91c1c"/>
+        </svg>
+        <div class="cl">Hip Hinge</div>
+        <div class="cr">3 × 10 · hips back, not down</div>
+      </div>
+      <div class="core">
+        <svg viewBox="0 0 180 120" role="img" aria-label="Forearm plank: flat back, elbows under shoulders, neutral head">
+          <line x1="20" y1="100" x2="160" y2="100" stroke="#e2e8f0" stroke-width="3"/>
+          <path d="M50 100 L50 78" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M130 100 L130 78" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M50 78 L130 78" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="130" cy="70" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M50 78 L44 62 L40 60" stroke="#b91c1c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <line class="align-line" x1="50" y1="78" x2="130" y2="78" stroke="#16a34a" stroke-width="2.5"/>
+          <text x="62" y="70" font-size="9" font-weight="700" fill="#065f46">flat back</text>
+        </svg>
+        <div class="cl">Forearm Plank</div>
+        <div class="cr">3 × 20–45s · elbows under shoulders</div>
+      </div>
+    </div>
   </div>
 
   <div class="card">
     <h2>Back care — the part that ties it all together</h2>
     <p>Strength is only half of it. <b>How you move</b> on the floor is what keeps your back safe:</p>
-    <ul>
-      <li><b>Bend your knees, not your waist</b> — squat down to the client's level instead of hinging over.</li>
-      <li><b>Keep the load close</b> — hug the client/object to your body before you move.</li>
-      <li><b>Brace your core</b> — a quick "tighten as if about to be poked" before any lift.</li>
-      <li><b>Pivot with your feet</b> — never twist your spine while holding weight.</li>
-      <li><b>Use your tools</b> — gait belts, transfer aids, and lifts exist for a reason. Never lift alone if the load is heavy; that's part of safe practice, not weakness.</li>
-      <li><b>Alternate tasks and take micro-breaks</b> — variety and short pauses prevent repetitive strain.</li>
+
+    <!-- Safe Lift: Do vs Don't -->
+    <div class="trio">
+      <div class="tcard">
+        <svg viewBox="0 0 200 140" role="img" aria-label="Keep the load close: green check for load held close, red x for extended arms">
+          <circle cx="60" cy="30" r="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M60 38 L60 62" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="76" y="46" width="26" height="26" rx="4" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M60 44 L76 52" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M60 44 L76 60" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M56 88 l6 6 12 -12" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M60 62 L56 88 M60 62 L66 88" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <circle cx="140" cy="30" r="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M140 38 L140 62" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <rect x="158" y="46" width="24" height="24" rx="4" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M140 44 L158 50" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M140 44 L158 60" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M142 86 l6 6 6 -6 M148 86 l0 12" stroke="#dc2626" stroke-width="4" stroke-linecap="round"/>
+          <path d="M140 62 L136 88 M140 62 L146 88" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+        <div class="tl">Keep the load close</div>
+        <div class="tr">Close to your center of gravity, not at arm's length</div>
+      </div>
+      <div class="tcard">
+        <svg viewBox="0 0 200 140" role="img" aria-label="Pivot with your feet: top-down view of feet stepping in an arc instead of twisting the torso">
+          <ellipse cx="70" cy="70" rx="30" ry="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
+          <text x="70" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="#4338ca">torso</text>
+          <path d="M100 84 a42 42 0 0 1 24 -30" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
+          <polygon points="124,50 122,60 130,58" fill="#16a34a"/>
+          <text x="128" y="82" font-size="9.5" font-weight="700" fill="#065f46">step, don't twist</text>
+          <g fill="#0f766e">
+            <ellipse cx="60" cy="104" rx="12" ry="18"/><ellipse cx="88" cy="116" rx="12" ry="18"/>
+          </g>
+        </svg>
+        <div class="tl">Pivot with your feet</div>
+        <div class="tr">Move your whole body — never twist the spine under load</div>
+      </div>
+      <div class="tcard">
+        <svg viewBox="0 0 200 140" role="img" aria-label="Brace your core: side view with arrows showing inward abdominal tension">
+          <circle cx="100" cy="24" r="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M100 32 L100 80" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M100 80 L86 112" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M100 80 L114 112" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <path d="M100 46 L84 58 L82 80" stroke="#b91c1c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <path d="M100 46 L116 58 L118 80" stroke="#b91c1c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g stroke="#dc2626" stroke-width="2.5">
+            <line x1="78" y1="62" x2="94" y2="62"/><line x1="106" y1="62" x2="122" y2="62"/>
+            <polygon points="94,62 88,59 88,65" fill="#dc2626"/><polygon points="106,62 112,59 112,65" fill="#dc2626"/>
+          </g>
+          <text x="82" y="96" font-size="9.5" font-weight="700" fill="#b91c1c">brace inward</text>
+        </svg>
+        <div class="tl">Brace your core</div>
+        <div class="tr">Tighten as if about to be poked, before you lift</div>
+      </div>
+    </div>
+
+    <p style="margin-top:4px">Tap each one as you master it on the floor:</p>
+    <ul class="check" id="checklist">
+      <li><span class="box">✓</span><span><b>Bend your knees, not your waist</b> — squat down to the client's level instead of hinging over.</span></li>
+      <li><span class="box">✓</span><span><b>Keep the load close</b> — hug the client/object to your body before you move.</span></li>
+      <li><span class="box">✓</span><span><b>Brace your core</b> — a quick "tighten as if about to be poked" before any lift.</span></li>
+      <li><span class="box">✓</span><span><b>Pivot with your feet</b> — never twist your spine while holding weight.</span></li>
+      <li><span class="box">✓</span><span><b>Use your tools</b> — gait belts, transfer aids, and lifts exist for a reason. Never lift alone if the load is heavy.</span></li>
+      <li><span class="box">✓</span><span><b>Alternate tasks and take micro-breaks</b> — variety and short pauses prevent repetitive strain.</span></li>
     </ul>
   </div>
 
@@ -155,15 +546,38 @@
     <div class="banner blue">
       This guide was inspired by <b><a href="https://opengym.duarte-santos.ch/" style="color:#075985">openGym</a></b> — a free, open-source gym &amp; body-weight tracker. No account, no subscription, no telemetry; your data stays on your phone.
     </div>
-    <p>It's a natural companion for the routines above:</p>
-    <ul>
-      <li><b>1,324 exercises</b> with animated demos, filtered by body part and equipment (all the body-weight moves here are in it)</li>
-      <li><b>Guided workouts</b> with rest timers and progression that remembers your last session</li>
-      <li><b>Timed sets</b> for planks, hangs, and holds</li>
-      <li><b>Streaks + heatmap</b> — a year of training at a glance, so quiet weeks don't slip by unnoticed</li>
-      <li><b>One-tap JSON export</b> — your log is a file you own</li>
-    </ul>
-    <p style="font-size:.85rem;color:var(--muted)">Android APK is a direct download; on iPhone use the self-hosted version as a home-screen app. See openGym's docs for details.</p>
+
+    <div class="mock">
+      <div class="phone">
+        <div class="app">openGym</div>
+        <div class="heat">
+          <i></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i></i><i class="l1"></i><i></i>
+          <i class="l1"></i><i class="l3"></i><i></i><i class="l2"></i><i class="l1"></i><i></i><i class="l2"></i>
+          <i></i><i class="l2"></i><i class="l1"></i><i class="l3"></i><i></i><i class="l2"></i><i></i>
+          <i class="l1"></i><i></i><i class="l2"></i><i class="l1"></i><i class="l3"></i><i></i><i class="l1"></i>
+        </div>
+        <div class="timer">
+          <svg class="ring2" viewBox="0 0 48 48" aria-hidden="true">
+            <circle cx="24" cy="24" r="20" fill="none" stroke="#e2e8f0" stroke-width="5"/>
+            <circle class="ring-progress" cx="24" cy="24" r="20" fill="none" stroke="#0f766e" stroke-width="5"
+                    stroke-linecap="round" stroke-dasharray="126" stroke-dashoffset="30" transform="rotate(-90 24 24)"/>
+          </svg>
+          <div><div class="tt">0:45</div><div class="tl">Plank · hold</div></div>
+        </div>
+        <div class="priv">🔒 Local · No telemetry · 100% offline</div>
+      </div>
+      <div style="flex:1;min-width:240px">
+        <p>It's a natural companion for the routines above:</p>
+        <ul>
+          <li><b>1,324 exercises</b> with animated demos, filtered by body part and equipment (all the body-weight moves here are in it)</li>
+          <li><b>Guided workouts</b> with rest timers and progression that remembers your last session</li>
+          <li><b>Timed sets</b> for planks, hangs, and holds</li>
+          <li><b>Streaks + heatmap</b> — a year of training at a glance, so quiet weeks don't slip by unnoticed</li>
+          <li><b>One-tap JSON export</b> — your log is a file you own</li>
+        </ul>
+        <p style="font-size:.85rem;color:var(--muted)">Android APK is a direct download; on iPhone use the self-hosted version as a home-screen app. See openGym's docs for details.</p>
+      </div>
+    </div>
   </div>
 
   <footer>
@@ -173,5 +587,12 @@
     Inspired by <a href="https://opengym.duarte-santos.ch/">openGym</a>
   </footer>
 </div>
+
+<script>
+  var items = document.querySelectorAll('#checklist li');
+  items.forEach(function(li){
+    li.addEventListener('click', function(){ li.classList.toggle('on'); });
+  });
+</script>
 </body>
 </html>
