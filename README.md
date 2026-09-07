@@ -60,6 +60,20 @@
 
 ---
 
+## 🧘 Calm & Centered (Stress Relief Guide)
+
+**Breathing, grounding, and mental-reset techniques to handle the emotional demands of placement — tied to your PSW scope of practice.**
+
+[**Open the Stress Relief Guide →**](https://8lueprint3.github.io/canadian-psw-placement-manual/stress-relief.html)
+
+- **4-7-8 breathing**, **box breathing**, and the **physiological sigh** — down-regulate your nervous system in 1–2 minutes, on the floor
+- **5-4-3-2-1 grounding** for post-incident overwhelm · **progressive muscle relaxation** for post-shift tension
+- **Visualization & assertive self-talk** (pre-shift mental rehearsal of the 4-step clinical loop + DARP)
+- Reframes your **PSW guidelines as stress protection** — scope, DARP, mandatory reporting, PHIPA, escalation
+- **When to get help** — warning signs + free Canadian resources (Wellness Together Canada, 9-8-8)
+
+---
+
 ## 🍽️ Meal Planner (your specifics, your plan)
 
 **Interactive tool — enter weight, goal, and diet type to generate a personalized 7-day plan + grocery budget.**
@@ -108,5 +122,6 @@
 - [`evidence-guide.html`](evidence-guide.html) — how to document events so the record stands up (DARP, do/don't, reporting targets)
 - [`can-i-record.html`](can-i-record.html) — consent guide: what a PSW can/should record (and what to do instead)
 - [`wellness-exercises.html`](wellness-exercises.html) — exercise & alertness guide: body-weight routines for PSWs to stay healthy (pre/post-shift, strength, back care)
+- [`stress-relief.html`](stress-relief.html) — stress relief guide: breathing (4-7-8, box breathing, physiological sigh), grounding, PMR, visualization & self-talk, when to get help
 - [`indigenous-nutrition-navigator.md`](indigenous-nutrition-navigator.md) — culturally safe meal guidance + 4 weekly PSW meal plans with budgets
 - [`meal-planner.html`](meal-planner.html) — interactive meal planner: weight + goal + diet type → 7-day plan + budget
