@@ -49,6 +49,7 @@
   .fig .cap{font-size:.78rem;color:var(--muted);margin-top:8px;font-style:italic}
   svg text{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
   svg .sc{transform-box:fill-box;transform-origin:center}
+  .sketch{filter:url(#sketchy)}
 
   .duo{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
   .panel{flex:1 1 240px;border-radius:14px;padding:14px;border:1.5px solid;text-align:center}
@@ -61,7 +62,6 @@
   .panel.good{background:#f0fdfa;border-color:#99f6e4}
   .panel.good h4{color:#0f766e}
 
-  /* icon pills */
   .ribbon{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0;justify-content:center}
   .pill{flex:0 1 96px;text-align:center}
   .pill .ring{width:72px;height:72px;margin:0 auto;border-radius:50%;background:#ecfdf5;border:2px solid #a7f3d0;
@@ -71,28 +71,25 @@
              font-weight:800;font-size:.74rem;display:flex;align-items:center;justify-content:center;border:2px solid #fff}
   .pill .lbl{font-size:.74rem;font-weight:700;color:#334155;margin-top:6px}
 
-  /* vignette cards */
   .vig{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
   .vcard{flex:1 1 200px;border-radius:12px;padding:12px;border:1px solid var(--border);background:#f8fafc;text-align:center}
   .vcard svg{width:100%;max-width:160px;height:auto;margin:0 auto;display:block}
   .vcard .vl{font-size:.78rem;font-weight:700;color:#334155;margin-top:6px}
   .vcard .vr{font-size:.72rem;color:var(--muted)}
 
-  /* core four */
   .coregrid{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
   .core{flex:1 1 210px;border-radius:12px;padding:14px;border:1px solid var(--border);text-align:center;background:#fafafa}
   .core svg{width:100%;max-width:180px;height:auto;margin:0 auto;display:block}
   .core .cl{font-size:.8rem;font-weight:700;color:#334155;margin-top:8px}
   .core .cr{font-size:.73rem;color:var(--muted)}
+  .core .demo{display:inline-block;margin-top:4px;font-size:.66rem;font-weight:700;color:#0ea5e9;letter-spacing:.3px}
 
-  /* safe-lift trio */
   .trio{display:flex;gap:14px;flex-wrap:wrap;margin:14px 0}
   .tcard{flex:1 1 210px;border-radius:12px;padding:12px;border:1px solid var(--border);text-align:center;background:#fff}
   .tcard svg{width:100%;max-width:190px;height:auto;margin:0 auto;display:block}
   .tcard .tl{font-size:.8rem;font-weight:700;color:#334155;margin-top:6px}
   .tcard .tr{font-size:.72rem;color:var(--muted)}
 
-  /* interactive checklist */
   .check{list-style:none;padding:0;margin:10px 0}
   .check li{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border:1px solid var(--border);
             border-radius:10px;margin:6px 0;cursor:pointer;background:#f8fafc;transition:.15s;font-size:.88rem}
@@ -102,7 +99,13 @@
                  align-items:center;justify-content:center;font-size:.85rem;color:#fff;transition:.15s}
   .check li.on .box{background:#16a34a;border-color:#16a34a}
 
-  /* openGym mockup */
+  /* muscle map */
+  .mmap{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin:14px 0}
+  .mmap svg{width:100%;max-width:200px;height:auto;flex:0 0 auto;margin:0 auto;display:block}
+  .legend{flex:1;min-width:220px;list-style:none;padding:0;margin:0}
+  .legend li{display:flex;gap:8px;align-items:center;font-size:.82rem;margin:5px 0}
+  .legend i{width:12px;height:12px;border-radius:3px;flex:0 0 auto}
+
   .mock{display:flex;gap:20px;flex-wrap:wrap;align-items:center;margin:16px 0}
   .phone{width:158px;border-radius:24px;border:6px solid #1f2d3d;background:#fff;padding:12px;
          box-shadow:0 8px 24px rgba(15,23,42,.18);flex:0 0 auto}
@@ -119,7 +122,8 @@
 
   /* ============ MOTION ============ */
   @media (prefers-reduced-motion: reduce){
-    .pill,.vcard svg,.spine-bad,.spine-good,.checkmark,.drop,.align-line,.ring-progress{animation:none!important}
+    .pill,.drop,.align-line,.ring-progress{animation:none!important}
+    svg animateTransform{display:none}
   }
   .spine-bad{animation:warnPulse 1.8s ease-in-out infinite}
   @keyframes warnPulse{0%,100%{opacity:.6}50%{opacity:1}}
@@ -136,12 +140,23 @@
   @keyframes dashflow{to{stroke-dashoffset:-24}}
   .ring-progress{animation:ringdrain 45s linear infinite}
   @keyframes ringdrain{from{stroke-dashoffset:0}to{stroke-dashoffset:126}}
-  .checkmark{transform-box:fill-box;transform-origin:center}
-  .check li.on .checkmark{animation:pop .25s ease}
+  .check li.on .box{animation:pop .25s ease}
   @keyframes pop{0%{transform:scale(.4)}70%{transform:scale(1.2)}100%{transform:scale(1)}}
+  .muscle-zone{animation:zoneGlow 3.5s ease-in-out infinite}
+  @keyframes zoneGlow{0%,100%{opacity:.55}50%{opacity:.9}}
 </style>
 </head>
 <body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="sketchy" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="4" result="n"/>
+      <feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+  </defs>
+</svg>
+
 <header>
   <div class="wrap">
     <h1>💪 Stay Alert &amp; Healthy — PSW Exercise Guide</h1>
@@ -170,12 +185,11 @@
     </ul>
     <p>Every routine below is <b>body-weight only</b> — no equipment, no gym, doable in a break room or at home.</p>
 
-    <!-- Spine as crane vs lever -->
     <div class="duo">
       <div class="panel bad">
         <h4>🚧 Bending at the waist</h4>
         <p class="sub">Spine as a <b>lever</b> — load amplifies at L4–L5</p>
-        <svg viewBox="0 0 170 200" role="img" aria-label="Person bending at the waist with a rounded back, red spine warning">
+        <svg class="sketch" viewBox="0 0 170 200" role="img" aria-label="Person bending at the waist with a rounded back, red spine warning">
           <circle cx="122" cy="32" r="11" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
           <path class="spine-bad" d="M60 108 C 90 74, 108 56, 120 46" fill="none" stroke="#dc2626" stroke-width="5" stroke-linecap="round"/>
           <path d="M60 108 L58 152 L54 190" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
@@ -198,7 +212,7 @@
       <div class="panel good">
         <h4>✅ Squatting, neutral spine</h4>
         <p class="sub">Spine as a <b>crane</b> — load spreads to glutes &amp; quads</p>
-        <svg viewBox="0 0 170 200" role="img" aria-label="Person squatting with a neutral straight spine, load distributed to legs">
+        <svg class="sketch" viewBox="0 0 170 200" role="img" aria-label="Person squatting with a neutral straight spine, load distributed to legs">
           <circle cx="70" cy="28" r="11" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
           <path class="spine-good" d="M70 118 L70 56" stroke="#16a34a" stroke-width="5" stroke-linecap="round"/>
           <path d="M70 118 L48 146" stroke="#0f766e" stroke-width="3.5" fill="none" stroke-linecap="round"/>
@@ -231,6 +245,34 @@
       <tr><td><b>Mobility</b></td><td>Hips, hamstrings, shoulders, spine — loosen up before a shift and unwind after.</td></tr>
       <tr><td><b>Alertness</b></td><td>Movement + breathing to reset energy and focus mid-shift.</td></tr>
     </table>
+
+    <!-- Muscle map -->
+    <h3>Your working muscles — a quick map</h3>
+    <div class="mmap">
+      <svg class="sketch" viewBox="0 0 200 220" role="img" aria-label="Front body muscle map highlighting shoulders, core, quads and calves">
+        <circle cx="100" cy="26" r="14" fill="#f1f5f9" stroke="#475569" stroke-width="2.5"/>
+        <path d="M100 40 L100 50" stroke="#475569" stroke-width="2.5"/>
+        <path d="M68 62 q32 -14 64 0 v50 q-32 12 -64 0 z" fill="#f1f5f9" stroke="#475569" stroke-width="2.5"/>
+        <path d="M68 66 q-18 14 -20 40" stroke="#475569" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M132 66 q18 14 20 40" stroke="#475569" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <path d="M78 112 L74 172" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+        <path d="M122 112 L126 172" stroke="#475569" stroke-width="3" stroke-linecap="round"/>
+        <circle class="muscle-zone" cx="60" cy="74" r="8" fill="#94a3b8"/>
+        <circle class="muscle-zone" cx="140" cy="74" r="8" fill="#94a3b8"/>
+        <ellipse class="muscle-zone" cx="100" cy="78" rx="16" ry="12" fill="#5eead4"/>
+        <rect class="muscle-zone" x="74" y="116" width="16" height="30" rx="7" fill="#4ade80"/>
+        <rect class="muscle-zone" x="110" y="116" width="16" height="30" rx="7" fill="#4ade80"/>
+        <rect class="muscle-zone" x="74" y="152" width="12" height="18" rx="5" fill="#fbbf24"/>
+        <rect class="muscle-zone" x="114" y="152" width="12" height="18" rx="5" fill="#fbbf24"/>
+      </svg>
+      <ul class="legend">
+        <li><i style="background:#94a3b8"></i><span><b>Shoulders</b> — lifting, rolling, and steadying during transfers</span></li>
+        <li><i style="background:#5eead4"></i><span><b>Core</b> — the brace that protects your spine on every lift</span></li>
+        <li><i style="background:#4ade80"></i><span><b>Quads &amp; glutes</b> — the squat-and-lift engine (your "crane")</span></li>
+        <li><i style="background:#fbbf24"></i><span><b>Calves</b> — stability on your feet all shift</span></li>
+        <li><i style="background:#c4b5fd"></i><span><b>Back (not shown)</b> — trained by hip hinge + bird-dog, the anti-rounding muscles</span></li>
+      </ul>
+    </div>
   </div>
 
   <div class="card">
@@ -248,35 +290,35 @@
     <div class="ribbon">
       <div class="pill">
         <div class="ring">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M22 54 V30 M22 30 l10 2 6 -9" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 40 L36 54" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <svg class="sketch" viewBox="0 0 64 64" aria-hidden="true"><path d="M22 54 V30 M22 30 l10 2 6 -9" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 40 L36 54" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/></svg>
           <span class="num">1</span>
         </div>
         <div class="lbl">March</div>
       </div>
       <div class="pill">
         <div class="ring">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="none" stroke="#0f766e" stroke-width="3"/><path d="M48 26 a20 20 0 0 1 0 14" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/><polygon points="48,42 44,38 52,36" fill="#0f766e"/></svg>
+          <svg class="sketch" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="20" fill="none" stroke="#0f766e" stroke-width="3"/><path d="M48 26 a20 20 0 0 1 0 14" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/><polygon points="48,42 44,38 52,36" fill="#0f766e"/></svg>
           <span class="num">2</span>
         </div>
         <div class="lbl">Circles</div>
       </div>
       <div class="pill">
         <div class="ring">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12 v10" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 22 q0 22 -16 24" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><polygon points="16,48 21,44 14,42" fill="#0f766e"/><circle cx="32" cy="10" r="3" fill="#0f766e"/></svg>
+          <svg class="sketch" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12 v10" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 22 q0 22 -16 24" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><polygon points="16,48 21,44 14,42" fill="#0f766e"/><circle cx="32" cy="10" r="3" fill="#0f766e"/></svg>
           <span class="num">3</span>
         </div>
         <div class="lbl">Spine roll</div>
       </div>
       <div class="pill">
         <div class="ring">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 46 h24 a6 6 0 0 0 6 -6 l4 -22" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 12 l6 4 -6 4" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg class="sketch" viewBox="0 0 64 64" aria-hidden="true"><path d="M14 46 h24 a6 6 0 0 0 6 -6 l4 -22" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M48 12 l6 4 -6 4" fill="none" stroke="#0f766e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
           <span class="num">4</span>
         </div>
         <div class="lbl">Calf raise</div>
       </div>
       <div class="pill">
         <div class="ring">
-          <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 16 v14" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 30 q-12 6 -12 16 l0 4" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 30 q12 6 12 16 l0 4" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M20 50 l0 6 M44 50 l0 6" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/></svg>
+          <svg class="sketch" viewBox="0 0 64 64" aria-hidden="true"><path d="M32 16 v14" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 30 q-12 6 -12 16 l0 4" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M32 30 q12 6 12 16 l0 4" fill="none" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/><path d="M20 50 l0 6 M44 50 l0 6" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/></svg>
           <span class="num">5</span>
         </div>
         <div class="lbl">Squat</div>
@@ -298,7 +340,7 @@
 
     <div class="vig">
       <div class="vcard">
-        <svg viewBox="0 0 160 130" role="img" aria-label="Wall sit: back flat against a wall, knees and hips at 90 degrees">
+        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Wall sit: back flat against a wall, knees and hips at 90 degrees">
           <rect x="18" y="6" width="10" height="118" rx="4" fill="#e2e8f0"/>
           <path d="M40 40 L76 40 L80 78 L40 118 Z" fill="#d1fae5" stroke="#0f766e" stroke-width="2.5" stroke-linejoin="round"/>
           <line x1="52" y1="118" x2="52" y2="100" stroke="#0f766e" stroke-width="3" stroke-linecap="round"/>
@@ -311,7 +353,7 @@
         <div class="vr">30–60s · knees &amp; hips at 90°</div>
       </div>
       <div class="vcard">
-        <svg viewBox="0 0 160 130" role="img" aria-label="Standing hip extension: hands on lower back, gentle backward lean">
+        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Standing hip extension: hands on lower back, gentle backward lean">
           <circle cx="80" cy="20" r="7" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
           <path d="M80 27 L80 58" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/>
           <path d="M80 58 L66 110" stroke="#0f766e" stroke-width="3.5" stroke-linecap="round"/>
@@ -325,7 +367,7 @@
         <div class="vr">Gentle backward lean · reverse forward-bending</div>
       </div>
       <div class="vcard">
-        <svg viewBox="0 0 160 130" role="img" aria-label="Cold water splash: hands under a running tap with droplets">
+        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Cold water splash: hands under a running tap with droplets">
           <path d="M66 12 h28" stroke="#0ea5e9" stroke-width="3.5" stroke-linecap="round"/>
           <path d="M66 12 v16 h28 v-16" fill="none" stroke="#0ea5e9" stroke-width="2.5"/>
           <path class="drop" d="M80 36 l3 7 a3 3 0 0 1 -6 0 z" fill="#0ea5e9"/>
@@ -353,7 +395,7 @@
 
     <div class="vig">
       <div class="vcard">
-        <svg viewBox="0 0 160 130" role="img" aria-label="Child's pose: hips on heels, arms extended forward">
+        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Child's pose: hips on heels, arms extended forward">
           <path d="M80 84 q0 20 20 20 q14 0 14 8" fill="none" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
           <path d="M80 84 q0 20 -20 20 q-14 0 -14 8" fill="none" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
           <circle cx="58" cy="62" r="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
@@ -366,7 +408,7 @@
         <div class="vr">30–60s · lengthen the low back</div>
       </div>
       <div class="vcard">
-        <svg viewBox="0 0 160 130" role="img" aria-label="Kneeling hip-flexor lunge: upright torso, pelvis tucked">
+        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Kneeling hip-flexor lunge: upright torso, pelvis tucked">
           <path d="M70 30 L70 66" stroke="#6366f1" stroke-width="3.5" stroke-linecap="round"/>
           <circle cx="70" cy="22" r="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
           <path d="M70 66 L44 96 L40 118" stroke="#6366f1" stroke-width="3.5" fill="none" stroke-linecap="round"/>
@@ -379,7 +421,7 @@
         <div class="vr">30s per side · pelvis tucked</div>
       </div>
       <div class="vcard">
-        <svg viewBox="0 0 160 130" role="img" aria-label="Foam roller zone map: safe zones on glutes, upper back, quads; avoid the lower back">
+        <svg class="sketch" viewBox="0 0 160 130" role="img" aria-label="Foam roller zone map: safe zones on glutes, upper back, quads; avoid the lower back">
           <circle cx="80" cy="24" r="7" fill="#e0e7ff" stroke="#6366f1" stroke-width="2"/>
           <path d="M72 40 h16 a6 6 0 0 1 6 6 v34 a6 6 0 0 1 -6 6 h-16 a6 6 0 0 1 -6 -6 v-34 a6 6 0 0 1 6 -6 z" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
           <ellipse cx="80" cy="56" rx="13" ry="7" fill="#4ade80" opacity=".8"/>
@@ -409,64 +451,80 @@
       <li><span class="ex">Hip hinge (unweighted)</span> <span class="reps">— 3 × 10; teaches the "squat, don't bend" pattern you use to lift</span></li>
     </ul>
 
-    <!-- Core Four -->
     <div class="coregrid">
       <div class="core">
-        <svg viewBox="0 0 180 120" role="img" aria-label="Bird-dog: on hands and knees, opposite arm and leg extended with a flat back">
-          <circle cx="52" cy="26" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
-          <path d="M52 32 L62 48" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <path d="M62 48 L36 64" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <path d="M62 48 L88 66" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <path d="M62 48 L76 32" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <line x1="62" y1="48" x2="62" y2="88" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <line x1="36" y1="64" x2="26" y2="70" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <line x1="88" y1="66" x2="98" y2="72" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <line class="align-line" x1="34" y1="52" x2="150" y2="52" stroke="#dc2626" stroke-width="2"/>
-          <text x="150" y="46" font-size="9" font-weight="700" fill="#b91c1c">flat</text>
+        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Bird-dog: opposite arm and leg extending and returning, animated">
+          <line class="align-line" x1="30" y1="62" x2="150" y2="62" stroke="#dc2626" stroke-width="2"/>
+          <circle cx="52" cy="54" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M58 60 L82 62" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="82" y1="62" x2="78" y2="98" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <line x1="82" y1="62" x2="104" y2="98" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 8 0; 0 0" dur="3s" repeatCount="indefinite"/>
+            <line x1="58" y1="60" x2="32" y2="60" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="0 0; -8 0; 0 0" dur="3s" repeatCount="indefinite"/>
+            <line x1="82" y1="62" x2="112" y2="66" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <text x="30" y="46" font-size="9" font-weight="700" fill="#b91c1c">flat back</text>
         </svg>
         <div class="cl">Bird-Dog</div>
         <div class="cr">3 × 10/side · keep the back flat</div>
+        <span class="demo">▶ DEMO LOOP</span>
       </div>
       <div class="core">
-        <svg viewBox="0 0 180 120" role="img" aria-label="Glute bridge: lying supine driving hips up, knees to shoulders in a straight line">
-          <line x1="20" y1="90" x2="160" y2="90" stroke="#e2e8f0" stroke-width="3"/>
-          <path d="M60 90 L52 52" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M104 90 L112 52" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M52 52 L112 52" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="52" cy="44" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
-          <line class="align-line" x1="52" y1="52" x2="112" y2="52" stroke="#16a34a" stroke-width="2.5"/>
-          <text x="118" y="64" font-size="9" font-weight="700" fill="#065f46">straight line</text>
+        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Glute bridge: hips lifting and lowering, animated">
+          <line x1="20" y1="100" x2="160" y2="100" stroke="#e2e8f0" stroke-width="3"/>
+          <line class="align-line" x1="58" y1="100" x2="125" y2="85" stroke="#16a34a" stroke-width="2.5"/>
+          <circle cx="42" cy="92" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+          <path d="M48 98 L58 100" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          <line x1="125" y1="85" x2="130" y2="100" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 13; 0 0" dur="3s" repeatCount="indefinite"/>
+            <path d="M58 100 L95 70" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
+            <path d="M95 70 L125 85" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          </g>
+          <text x="118" y="60" font-size="9" font-weight="700" fill="#065f46">straight line</text>
         </svg>
         <div class="cl">Glute Bridge</div>
         <div class="cr">3 × 12 · drive through heels</div>
+        <span class="demo">▶ DEMO LOOP</span>
       </div>
       <div class="core">
-        <svg viewBox="0 0 180 120" role="img" aria-label="Hip hinge: hips pushed straight back, flat back, soft knees">
-          <circle cx="118" cy="28" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
-          <path d="M118 34 L86 52 L84 96" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
-          <path d="M118 34 L84 60" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M86 52 L96 96" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Hip hinge: hips pushing back and returning, animated">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0 86 52; 18 86 52; 0 86 52" dur="3s" repeatCount="indefinite"/>
+            <circle cx="118" cy="28" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+            <path d="M118 34 L86 52" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M118 34 L84 60" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+          </g>
           <line class="align-line" x1="96" y1="52" x2="128" y2="52" stroke="#dc2626" stroke-width="2"/>
-          <path d="M84 96 L76 106" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
-          <path d="M96 96 L102 106" stroke="#b91c1c" stroke-width="3" stroke-linecap="round"/>
+          <path d="M86 52 L84 96 L76 106" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          <path d="M86 52 L96 96 L102 106" stroke="#b91c1c" stroke-width="3.5" fill="none" stroke-linecap="round"/>
           <polygon points="136,52 130,56 130,48" fill="#b91c1c"/>
         </svg>
         <div class="cl">Hip Hinge</div>
         <div class="cr">3 × 10 · hips back, not down</div>
+        <span class="demo">▶ DEMO LOOP</span>
       </div>
       <div class="core">
-        <svg viewBox="0 0 180 120" role="img" aria-label="Forearm plank: flat back, elbows under shoulders, neutral head">
+        <svg class="sketch" viewBox="0 0 180 120" role="img" aria-label="Forearm plank: flat back hold with a subtle breathing pulse">
           <line x1="20" y1="100" x2="160" y2="100" stroke="#e2e8f0" stroke-width="3"/>
-          <path d="M50 100 L50 78" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M130 100 L130 78" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
-          <path d="M50 78 L130 78" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
-          <circle cx="130" cy="70" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
-          <path d="M50 78 L44 62 L40 60" stroke="#b91c1c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <g>
+            <animateTransform attributeName="transform" type="translate" values="0 0; 0 -2; 0 0" dur="4s" repeatCount="indefinite"/>
+            <path d="M50 100 L50 78" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M130 100 L130 78" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M50 78 L130 78" stroke="#b91c1c" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="130" cy="70" r="6" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+            <path d="M50 78 L44 62 L40 60" stroke="#b91c1c" stroke-width="3" fill="none" stroke-linecap="round"/>
+          </g>
           <line class="align-line" x1="50" y1="78" x2="130" y2="78" stroke="#16a34a" stroke-width="2.5"/>
           <text x="62" y="70" font-size="9" font-weight="700" fill="#065f46">flat back</text>
         </svg>
         <div class="cl">Forearm Plank</div>
         <div class="cr">3 × 20–45s · elbows under shoulders</div>
+        <span class="demo">▶ HOLD</span>
       </div>
     </div>
   </div>
@@ -475,10 +533,9 @@
     <h2>Back care — the part that ties it all together</h2>
     <p>Strength is only half of it. <b>How you move</b> on the floor is what keeps your back safe:</p>
 
-    <!-- Safe Lift: Do vs Don't -->
     <div class="trio">
       <div class="tcard">
-        <svg viewBox="0 0 200 140" role="img" aria-label="Keep the load close: green check for load held close, red x for extended arms">
+        <svg class="sketch" viewBox="0 0 200 140" role="img" aria-label="Keep the load close: green check for load held close, red x for extended arms">
           <circle cx="60" cy="30" r="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
           <path d="M60 38 L60 62" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
           <rect x="76" y="46" width="26" height="26" rx="4" fill="#fca5a5" stroke="#b91c1c" stroke-width="2"/>
@@ -498,7 +555,7 @@
         <div class="tr">Close to your center of gravity, not at arm's length</div>
       </div>
       <div class="tcard">
-        <svg viewBox="0 0 200 140" role="img" aria-label="Pivot with your feet: top-down view of feet stepping in an arc instead of twisting the torso">
+        <svg class="sketch" viewBox="0 0 200 140" role="img" aria-label="Pivot with your feet: top-down view of feet stepping in an arc instead of twisting the torso">
           <ellipse cx="70" cy="70" rx="30" ry="12" fill="#eef2ff" stroke="#c7d2fe" stroke-width="2"/>
           <text x="70" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="#4338ca">torso</text>
           <path d="M100 84 a42 42 0 0 1 24 -30" fill="none" stroke="#16a34a" stroke-width="3" stroke-linecap="round"/>
@@ -512,7 +569,7 @@
         <div class="tr">Move your whole body — never twist the spine under load</div>
       </div>
       <div class="tcard">
-        <svg viewBox="0 0 200 140" role="img" aria-label="Brace your core: side view with arrows showing inward abdominal tension">
+        <svg class="sketch" viewBox="0 0 200 140" role="img" aria-label="Brace your core: side view with arrows showing inward abdominal tension">
           <circle cx="100" cy="24" r="8" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
           <path d="M100 32 L100 80" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
           <path d="M100 80 L86 112" stroke="#b91c1c" stroke-width="3.5" stroke-linecap="round"/>
