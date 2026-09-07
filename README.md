@@ -60,6 +60,18 @@
 
 ---
 
+## 🩺 Wellness & Injury Prevention (Infographic)
+
+**One-page visual: pre-shift warm-up, mid-shift alertness resets, post-shift decompression, and spine-safe lifting biomechanics.**
+
+[**Open the Infographic →**](https://8lueprint3.github.io/canadian-psw-placement-manual/wellness-infographic.html)
+
+- Modern flat **monoline vector** style in a clean 4-column layout
+- **Pre-shift** — march, arm circles, spine stretch · **Mid-shift** — squats, wall sit, box breathing · **Post-shift** — child's pose, hip-flexor lunge, wind-down breathing
+- **Mechanical cues** — squat-don't-bend comparison (load close vs waist hinge), 360° core brace, pivot-with-feet
+
+---
+
 ## 🧘 Calm & Centered (Stress Relief Guide)
 
 **Breathing, grounding, and mental-reset techniques to handle the emotional demands of placement — tied to your PSW scope of practice.**
@@ -122,6 +134,7 @@
 - [`evidence-guide.html`](evidence-guide.html) — how to document events so the record stands up (DARP, do/don't, reporting targets)
 - [`can-i-record.html`](can-i-record.html) — consent guide: what a PSW can/should record (and what to do instead)
 - [`wellness-exercises.html`](wellness-exercises.html) — exercise & alertness guide: body-weight routines for PSWs to stay healthy (pre/post-shift, strength, back care)
+- [`wellness-infographic.html`](wellness-infographic.html) — one-page wellness & injury-prevention infographic (pre/mid/post-shift routines + lifting biomechanics, monoline vector)
 - [`stress-relief.html`](stress-relief.html) — stress relief guide: breathing (4-7-8, box breathing, physiological sigh), grounding, PMR, visualization & self-talk, when to get help
 - [`indigenous-nutrition-navigator.md`](indigenous-nutrition-navigator.md) — culturally safe meal guidance + 4 weekly PSW meal plans with budgets
 - [`meal-planner.html`](meal-planner.html) — interactive meal planner: weight + goal + diet type → 7-day plan + budget
